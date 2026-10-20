@@ -1,0 +1,24 @@
+Daily standup - tim Kodnica
+utorak, 6.10.2026, 09:30, Google Meet
+
+Lamija: Ok, ajmo brzo, imamo petnaest minuta. Haris, ti prvi.
+Haris: Juče sam završio login screen, PR je otvoren, treba mi review. Danas radim na push notifikacijama.
+Lamija: Ko može uraditi review?
+Dino: Ja ću, danas poslije ručka.
+Haris: Super. Imam jedan blocker, Firebase ključevi za staging nisu u vaultu.
+Lamija: To je moje, sorry, dodat ću ih danas do podne.
+Dino: Ja sam juče fixao onaj bug sa duplim narudžbama, bio je race condition u checkoutu. Deployao sam na staging.
+Lamija: Jel testirano?
+Dino: Unit testovi prolaze, ali treba neko manualno proći cijeli checkout flow.
+Ajla: Ja ću to sutra ujutro, danas imam sastanak s klijentom.
+Lamija: Ajla, kad si već sa klijentom, pitaj ih za finalne boje za dark mode, to nam blokira dizajn.
+Ajla: Hoću. Btw, klijent je pitao možemo li demo pomjeriti sa petka na četvrtak.
+Haris: Četvrtak je tight, push notifikacije neće biti gotove.
+Lamija: Ok, onda ostaje petak. Ajla, javi klijentu da je demo u petak u 14h, kako je i bilo dogovoreno.
+Ajla: Važi, javit ću im danas.
+Dino: Još nešto, trebamo li prebaciti bazu na novi server prije demoa?
+Lamija: Ne, to radimo nakon demoa, početkom sljedeće sedmice. Dino, pripremi plan migracije do tada.
+Dino: Ok.
+Lamija: I podsjetnik, sprint review je u četvrtak 15. Svi updateajte taskove u Jiri do srijede navečer.
+Haris: Pitanje, da li prelazimo na novu verziju React Native-a ili ostajemo na staroj?
+Lamija: Dobro pitanje, to ćemo odlučiti na sprint reviewu. Hvala svima.
