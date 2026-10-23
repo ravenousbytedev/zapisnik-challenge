@@ -162,7 +162,7 @@ def write_md(file, data, /):
 def main():
     dotenv.load_dotenv()
     parser = argparse.ArgumentParser(
-        prog="zapisnik",
+        prog="python3 zapisnik.py",
         description=(
             "A tool that reads a messy meeting transcript and works out who was there, " +
             "what was decided, and who has to do what by when."
