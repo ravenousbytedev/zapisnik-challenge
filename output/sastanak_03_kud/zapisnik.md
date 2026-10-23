@@ -1,4 +1,4 @@
-# Sjednica upravnog odbora KUD Sevdah (None, 08. 10. 2026.)
+# None (None, 08. 10. 2026.)
 
 ### Prisutni
 
@@ -16,30 +16,31 @@
 
 ### Teme
 
-- Putovanje u Mostar na festival
+- Organizacija prijevoza za putovanje u Mostar
 
-- Nedoplanjena članarina za septembar
+- Neplaćene članarine za septembar
 
-- Nova kolekcija nosnji i budžet
+- Kupovina nove kolekcije nosnji i finansiranje
 
 ### Odluke
 
 | Odluka | Linije |
 |-|-|
-| Organizacija prijevoza do Mostara za festival objavljen izbor dvije kombija i jednog automobila za opremu. | 9-11 |
-| Podnošenje prijave na konkurs Ministarstva kulture za finansiranje nove kolekcije nosnji. | 24-28 |
+| Za prijevoz do Mostara koristiti će se dva kombija i jednog vozila za opremu. | 11-12 |
+| Aplikovati za konkurs Ministarstva kulture radi finansiranja nove kolekcije nosnji. | 20-24 |
 
 ### Zaduženja
 
 | Opis | Osoba | Krajnji rok | Dodatna napomena | Linije |
 |-|-|-|-|-|
-| Rezervisati dva kombija i jedno auto za opremu | Jasmin | 12. 10. 2026. ("do ponedjeljka")|  | 13 |
-| Poslati podsjetnik o članarini članovima koji nisu platili za septembar u Viber grupu | Edina | 09. 10. 2026. ("sutra")|  | 16-17 |
-| Poslati budžet Jasminu | Edina | 16. 10. 2026. ("do petka")|  | 27 |
-| Napisati prijavu za konkurs Ministarstva kulture | Nihad | ?| Rok za konkurs je kraj oktobra, ali nije eksplicitno naveden kao deadline za završetak nove prijave, već kao rok za aplikaciju u cjelini. | 24-27 |
+| Izračunati troškove goriva za auto transport opreme | None | ?| Rok nije naveden u transkriptu. | 13 |
+| Rezervisati dva kombija za putovanje | Jasmin | 12. 10. 2026. ("do ponedjeljka")|  | 14 |
+| Poslati podsjetnik neplaćenicima članarine | Edina | 09. 10. 2026. ("sutra")|  | 17-18 |
+| Poslati budžet Jasminu | Edina | 09. 10. 2026. ("do petka")|  | 23 |
+| Napisati prijavu za konkurs Ministarstva kulture | Jasmin | ?| Dostupan je samo sporadični rok (kraj oktobra), a ne konkretan datum završetka pisanja prijedloga. | 23 |
 
 ### Otvorena pitanja
 
 | Pitanje | Linije |
 |-|-|
-| Šta ako članovi ne plate članarinu nakon slanja podsjetnika? | 18-19 |
+| Šta učiniti ako članovi i dalje ne plate članarine nakon podsjetnika? | 19 |

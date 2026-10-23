@@ -1,4 +1,4 @@
-# Sastanak savjeta mjesne zajednice "Brijeg" (prostorije MZ Brijeg, 03. 10. 2026.)
+# Sastanak Savjeta mjesne zajednice "Brijeg" (prostorije MZ Brijeg, 03. 10. 2026.)
 
 ### Prisutni
 
@@ -14,32 +14,32 @@
 
 ### Teme
 
-- Dječije igralište u parku
+- Kupa dječije igralište u parku
 
-- Rasvjeta u Ulici branilaca
+- Nefunkcionalna rasvjeta u Ulici branilaca
 
-- Akcija čišćenja obale rijeke
+- Organizacija akcije čišćenja obale rijeke
 
 ### Odluke
 
 | Odluka | Linije |
 |-|-|
-| Prije donošenja konačne odluke o kupovini opreme za dječije igralište, prikupiti će se još dvije ponude. | 8-12 |
-| Poslati će se zvanični dopis općini s obavještenjem da uredenje rasvjete u Ulici branilaca nije u nadležnosti Elektrodistribucije, već općine. | 18-21 |
-| Akcija čišćenja obale rijeke zakazana je za subotu, 24. oktobra, u 10:00. | 25-29 |
+| Tražiti će se dodatne dvije ponude za opremu dječijeg igrališta prije donošenja odluke o nabavci. | 8-11 |
+| Poslati će se zvaničan dopis Općini radi spravljenja kvarova rasvjete u Ulici branilaca. | 16-17 |
+| Akcija čišćenja obale rijeke zakazana je za subotu, 24. oktobra, u 10:00 sati. | 22-25 |
 
 ### Zaduženja
 
 | Opis | Osoba | Krajnji rok | Dodatna napomena | Linije |
 |-|-|-|-|-|
-| Prikupiti još dvije ponude za opremu dječijeg igrališta | Kenan Mehić | 09. 10. 2026. ("do petka")|  | 12-13 |
-| Napisati zvanični dopis općini povodom neispravne rasvjete | Selma Kovač | 05. 10. 2026. ("do ponedjeljka")|  | 20-21 |
-| Poslati fotografije neispravnih stubova rasvjete Selmi | Mirza Alić | 03. 10. 2026. ("večeras")|  | 23-24 |
-| Obavijestiti školu i džemat o akciji čišćenja | Kenan Mehić | 10. 10. 2026. ("do kraja sedmice")| Nije jasno da li se misli na nedjelju (kasni kraj tjedna) ili subotu (završetak aktivnog tjedna u kontekstu planiranja za sljedeću subotu). Tradicionalno 'kraj sedmice' označava nedjelju. | 31-32 |
-| Nabaviti vreće i rukavice za akciju čišćenja | Mirza Alić | ?| Nije specificiran rok nabavke, implicira se da mora biti gotovo do dana akcije, ali eksplicitan deadline nije izrečen. | 31 |
+| Prikupiti dodatne dvije ponude za dječije igralište i poslati ih učesnicima sastanka | Kenan Mehić | 09. 10. 2026. ("do petka")|  | 12-13 |
+| Napisati dopis Općini za popravku rasvjete u Ulici branilaca | Selma Kovač | 12. 10. 2026. ("do ponedjeljka")|  | 18-19 |
+| Poslati fotografije kvarne rasvjete Selmi Kovač | Mirza Alić | 03. 10. 2026. ("večeras")|  | 21-22 |
+| Nabaviti vreće i rukavice za akciju čišćenja | Mirza Alić | ?| Rok nije specificiran, odgovornost je naslovljena na organizaciju akcije. | 26 |
+| Obavijestiti školu i džemat o akciji čišćenja čime će se okačiti obavještenje | Kenan Mehić | 10. 10. 2026. ("do kraja sedmice")|  | 26-27 |
 
 ### Otvorena pitanja
 
 | Pitanje | Linije |
 |-|-|
-| Ko će platiti vreće i rukavice za akciju čišćenja? | 33-34 |
+| Na koji način će se platiti nabavka vreća i rukavica za akciju čišćenja? | 28-29 |

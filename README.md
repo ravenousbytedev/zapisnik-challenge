@@ -22,13 +22,13 @@ python3 zapisnik.py <transcript filename> --out <output directory>
 
 My approach to this challenge was to use an LLM with a strict system prompt to process the given transcript and extract all required data. The reason I chose this approach is because it's quick and relatively easy to implement programmatically, which was ideal for the short time window I had for this project.
 
-The major flaw of this approach is that the accuracy of the script depends heavily on the quality of the LLM used. For example, most free models, including Qwen 3.8 27B, which I used during development, will get the key points of the meeting right, but are inconsistent in terms of gathering information mostly about different people. They will confuse names, sometimes hallucinate, inventing names that are never mentioned, assign overkill roles where a simple `null` is preferred, etc.
+The major flaw of this approach is that the accuracy of the script depends heavily on the quality of the LLM used. For example, most free models, including Qwen 3.8 27B, which I used during development, will get the key points of the meeting right, but are inconsistent in terms of wording and hardly get line numbers right. In rarer cases, I've observed this model in particular hallucinate non-existent names as well.
 
 Another issue is that the script cannot work offline because it needs internet access in order to communicate with the GroqCloud servers and interact with LLMs. A RegEx or a lower-level NLP approach would've been far more tedious to plan and implement, but would solve this issue in particular.
 
 ### How I used AI assistants
 
-I used ChatGPT to help weigh the pros and cons of different approaches to this problem and ultimately decided to settle for the LLM approach. Apart from that, I only used official docs (e.g. for `argparse` Python library and GroqCloud's API), online forums (StackOverflow and Reddit) and my own knowledge.
+I used ChatGPT to help weigh the pros and cons of different approaches to this problem and ultimately decided to settle for the LLM approach. I also used it later to help me rewrite my system prompt from an extensive and exhaustive but unorganized instruction set into a structured and very strict ruleset for the LLM. Apart from that, I only used official docs (e.g. for `argparse` Python library and GroqCloud's API), online forums (StackOverflow and Reddit) and my own knowledge.
 
 ### What I would add with one more week
 

@@ -1,5 +1,5 @@
 {
-    "title": "Sastanak savjeta mjesne zajednice \"Brijeg\"",
+    "title": "Sastanak Savjeta mjesne zajednice \"Brijeg\"",
     "date": "2026-10-03",
     "location": "prostorije MZ Brijeg",
     "attendees": [
@@ -26,44 +26,40 @@
     ],
     "absent": [],
     "topics": [
-        "Dje\u010dije igrali\u0161te u parku",
-        "Rasvjeta u Ulici branilaca",
-        "Akcija \u010di\u0161\u0107enja obale rijeke"
+        "Kupa dje\u010dije igrali\u0161te u parku",
+        "Nefunkcionalna rasvjeta u Ulici branilaca",
+        "Organizacija akcije \u010di\u0161\u0107enja obale rijeke"
     ],
     "decisions": [
         {
-            "text": "Prije dono\u0161enja kona\u010dne odluke o kupovini opreme za dje\u010dije igrali\u0161te, prikupiti \u0107e se jo\u0161 dvije ponude.",
+            "text": "Tra\u017eiti \u0107e se dodatne dvije ponude za opremu dje\u010dijeg igrali\u0161ta prije dono\u0161enja odluke o nabavci.",
             "lines": [
                 8,
                 9,
                 10,
-                11,
-                12
+                11
             ]
         },
         {
-            "text": "Poslati \u0107e se zvani\u010dni dopis op\u0107ini s obavje\u0161tenjem da uredenje rasvjete u Ulici branilaca nije u nadle\u017enosti Elektrodistribucije, ve\u0107 op\u0107ine.",
+            "text": "Poslati \u0107e se zvani\u010dan dopis Op\u0107ini radi spravljenja kvarova rasvjete u Ulici branilaca.",
             "lines": [
-                18,
-                19,
-                20,
-                21
+                16,
+                17
             ]
         },
         {
-            "text": "Akcija \u010di\u0161\u0107enja obale rijeke zakazana je za subotu, 24. oktobra, u 10:00.",
+            "text": "Akcija \u010di\u0161\u0107enja obale rijeke zakazana je za subotu, 24. oktobra, u 10:00 sati.",
             "lines": [
-                25,
-                26,
-                27,
-                28,
-                29
+                22,
+                23,
+                24,
+                25
             ]
         }
     ],
     "action_items": [
         {
-            "description": "Prikupiti jo\u0161 dvije ponude za opremu dje\u010dijeg igrali\u0161ta",
+            "description": "Prikupiti dodatne dvije ponude za dje\u010dije igrali\u0161te i poslati ih u\u010desnicima sastanka",
             "owner": "Kenan Mehi\u0107",
             "due_date": "2026-10-09",
             "due_original": "do petka",
@@ -75,39 +71,27 @@
             ]
         },
         {
-            "description": "Napisati zvani\u010dni dopis op\u0107ini povodom neispravne rasvjete",
+            "description": "Napisati dopis Op\u0107ini za popravku rasvjete u Ulici branilaca",
             "owner": "Selma Kova\u010d",
-            "due_date": "2026-10-05",
+            "due_date": "2026-10-12",
             "due_original": "do ponedjeljka",
             "confident": true,
             "note": null,
             "lines": [
-                20,
-                21
+                18,
+                19
             ]
         },
         {
-            "description": "Poslati fotografije neispravnih stubova rasvjete Selmi",
+            "description": "Poslati fotografije kvarne rasvjete Selmi Kova\u010d",
             "owner": "Mirza Ali\u0107",
             "due_date": "2026-10-03",
             "due_original": "ve\u010deras",
             "confident": true,
             "note": null,
             "lines": [
-                23,
-                24
-            ]
-        },
-        {
-            "description": "Obavijestiti \u0161kolu i d\u017eemat o akciji \u010di\u0161\u0107enja",
-            "owner": "Kenan Mehi\u0107",
-            "due_date": "2026-10-10",
-            "due_original": "do kraja sedmice",
-            "confident": false,
-            "note": "Nije jasno da li se misli na nedjelju (kasni kraj tjedna) ili subotu (zavr\u0161etak aktivnog tjedna u kontekstu planiranja za sljede\u0107u subotu). Tradicionalno 'kraj sedmice' ozna\u010dava nedjelju.",
-            "lines": [
-                31,
-                32
+                21,
+                22
             ]
         },
         {
@@ -116,18 +100,30 @@
             "due_date": null,
             "due_original": null,
             "confident": false,
-            "note": "Nije specificiran rok nabavke, implicira se da mora biti gotovo do dana akcije, ali eksplicitan deadline nije izre\u010den.",
+            "note": "Rok nije specificiran, odgovornost je naslovljena na organizaciju akcije.",
             "lines": [
-                31
+                26
+            ]
+        },
+        {
+            "description": "Obavijestiti \u0161kolu i d\u017eemat o akciji \u010di\u0161\u0107enja \u010dime \u0107e se oka\u010diti obavje\u0161tenje",
+            "owner": "Kenan Mehi\u0107",
+            "due_date": "2026-10-10",
+            "due_original": "do kraja sedmice",
+            "confident": true,
+            "note": "Razumije se pred kraj radne sedmice (petak) ili najkasnije nedjelja kako bi obavje\u0161tenje bilo dostavljeno prije termina akcije.",
+            "lines": [
+                26,
+                27
             ]
         }
     ],
     "open_questions": [
         {
-            "text": "Ko \u0107e platiti vre\u0107e i rukavice za akciju \u010di\u0161\u0107enja?",
+            "text": "Na koji na\u010din \u0107e se platiti nabavka vre\u0107a i rukavica za akciju \u010di\u0161\u0107enja?",
             "lines": [
-                33,
-                34
+                28,
+                29
             ]
         }
     ]

@@ -12,19 +12,21 @@
 
 ### Teme
 
-- Status napretka na login ekranu i push notifikacijama
+- Status završenog login ekrana i potreba za pregledom koda
 
-- Review pull requesta
+- Razvoj push notifikacija
 
-- Rješavanje problema sa Firebase ključevima za staging okruženje
+- Ispravka greške (bug) kod dvostrukih narudžbi i testiranje checkout procesa
 
-- Ispravka greške sa duplim narudžbama (race condition u checkoutu) i testiranje
+- Dodavanje Firebase ključeva za staging u sigurnosni kavez (vault)
 
-- Koordinacija s klijentom: finalne boje za tamni režim i vremenski okvir za demo
+- Konačne boje za tamni način (dark mode) koje klijent mora potvrditi
+
+- Termin demo prezentacije klijentu
 
 - Plan migracije baze podataka na novi server
 
-- Sprint review i ažuriranje taskova u Jiri
+- Priprema za opći pregled sprinta (sprint review)
 
 - Odluka o prelasku na novu verziju React Native-a
 
@@ -32,23 +34,24 @@
 
 | Odluka | Linije |
 |-|-|
-| Demo ostaje zakazan za petak u 14:00, a ne za četvrtak. | 14-16 |
-| Migracija baze podataka na novi server izvršit će se nakon demoa, početkom sljedeće sedmice. | 18-19 |
+| Demo prezentacija klijentu će se održati u petak u 14:00. | 22-23 |
+| Migracija baze podataka na novi server obavlja se nakon demo prezentacije, početkom sljedeće sedmice. | 25-26 |
+| Opći pregled sprinta (sprint review) održat će se u četvrtak u 15:00. | 28 |
 
 ### Zaduženja
 
 | Opis | Osoba | Krajnji rok | Dodatna napomena | Linije |
 |-|-|-|-|-|
-| pregledati pull request login ekrana | Dino | 06. 10. 2026. ("danas poslije ručka")| Precizno vrijeme nije specificirano | 4-5 |
-| dodati Firebase ključeve za staging u vault | Lamija | 06. 10. 2026. ("danas do podne")|  | 7-8 |
-| ručno testirati cijeli tok narudžbe (checkout flow) | Ajla | 07. 10. 2026. ("sutra ujutro")| Precizno vrijeme nije specificirano | 11-12 |
-| pitati klijenta za finalne boje za tamni režim | Ajla | ?| Nije specificiran rok za izvršenje ove radnje | 13 |
-| dvojati klijentu da je demo zakazan za petak u 14:00 | Ajla | 06. 10. 2026. ("danas")|  | 16-17 |
-| pripremiti plan migracije baze podataka | Dino | 09. 10. 2026. ("do tada")|  | 19-20 |
-| ažurirati taskove u Jiri | Svi prisutni | 07. 10. 2026. ("do srijede navečer")| Precizno vrijeme nije specificirano | 21-22 |
+| Praviti pregled (review) PR-a za login ekran | Dino | 06. 10. 2026. ("danas poslije ručka")|  | 4-6 |
+| Dodati Firebase ključeve za staging u vault | Lamija | 06. 10. 2026. ("danas do podne")|  | 8-9 |
+| Ručno testirati cijeli checkout proces | Ajla | 07. 10. 2026. ("sutra ujutro")|  | 14-15 |
+| Pitati klijenta za konačne boje za dark mode | Ajla | 06. 10. 2026. ("kad si već sa klijentom")|  | 17-18 |
+| Obavijestiti klijenta da demo prezentacija ostaje u petak u 14:00 | Ajla | 06. 10. 2026. ("danas")|  | 23-24 |
+| Pripremiti plan migracije baze podataka | Dino | ?| Rok je definiran kao period do početka sljedeće sedmice, što nije točan datum. | 26-27 |
+|  ažurirati zadatke u Jiri | None | 07. 10. 2026. ("do srijede navečer")|  | 28 |
 
 ### Otvorena pitanja
 
 | Pitanje | Linije |
 |-|-|
-| Da li prestupamo na novu verziju React Native-a ili ostajemo na staroj? | 22-23 |
+| Da li se prelazi na novu verziju React Native-a ili se ostaje na staroj? | 29-30 |

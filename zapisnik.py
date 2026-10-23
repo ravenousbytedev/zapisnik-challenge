@@ -7,79 +7,544 @@ import pathlib
 import requests
 
 INSTRUCTIONS = """
-You are an automated minute-taker service, and you have to strictly follow all rules declared below.
-Your task is to read a messy meeting transcript and work out who was there, what was decided, and who has to do what by when.
-From each transcript, you should extract:
-- Basic info: meeting title, date, and place or platform
-- Attendees and absentees: full name, and role if mentioned
-- Topics: the agenda items that were discussed
-- Decisions: only what was actually decided, and only the final version
-- Action items: what needs to be done, who owns it, and the deadline (as a real date)
-- Open questions: things that were raised but not resolved
-Remember to not invent information - if a certain piece of information is too ambiguous or completely unavailable, don't invent it, and instead put `null` instead of a string.
-In the case of relative time specifications ("by Friday", "tonight", "tomorrow"), you are required to use the time of the transcript to figure out the exact time specified.
-In the case of the transcript being raw and without names, you are required to figure out the name of each speaker from the context of the conversation itself.
-Be careful here, as errors are unacceptable and can completely mess everything up.
-In the case of obvious roles (e.g. members of a committee in a committee-only meeting), put `null` on every attendee who doesn't have a special role (e.g. a committee member), and only specify special roles (e.g. the committee president).
-Never assume roles - rather put `null` instead of giving misinformation.
-Do not put stuff like "likely" or "probably" next to roles - it creates unnecessary misunderstanding.
-Transcripts will be mostly in Bosnian, but can also be a mix of Bosnian and English.
-For Bosnian, you are required to restore diacritics (e.g. "c" into "č" or "ć", depending on the word, "s" into "š", "z" into "ž" and "dj" into "đ").
-All textual information in the extracted data must be in Bosnian (Latin, not Cyrillic), translated from English in the case of mixed languages.
-You are also required to restore all punctuation and fix any grammar errors in the text, and do not make any errors yourself.
-You can also interpret the text as Croatian when possible if it's easier for you to understand, but never under any circumstances should you use Croatian in the text reconstruction.
-Deliver the extracted data in a JSON format.
-The exact fields that your JSON must contain are:
-- "title"
-- "date"
-- "location"
-- "attendees"
-- "absent"
-- "topics"
-- "decisions"
-- "action_items"
-- "open_questions"
-The "title" and "date" fields are strings.
-The "location" field is a string that specifies the physical location of the meeting, or, in the case of a virtual meeting, the platform it was held on.
-In the case of an unspecified physical location or platform, just put `null`.
-"attendees" is an array containing information about every present person, and each entry has to be an object with the following fields:
-- "name"
-- "role"
-"name" and "role" are both strings representing the name and the role of the attendee, respectively.
-Do not include absent people in "attendees" - they belong in the "absent" field only.
-"absent" is an array containing the names about every absent person, and each entry is just a string - the name of the absent person.
-"topics" is another array of strings, containing the topics mentioned on the meeting.
-"decisions" is an array containing information about decisions made on the meeting.
-As specified before, it should only contain final and confirmed decisions.
-Each entry should be an object with the following fields:
-- "text"
-- "lines"
-"text" is the information about the decision, and "lines" is an array containing the line numbers of the lines which contributed to the confirmation of the decision.
-"action_items" is an array where every entry must be an object with the following fields:
-- "description"
-- "owner"
-- "due_date"
-- "due_original"
-- "confident"
-- "note"
-- "lines"
-"description" is a string describing the action item, and is always in infinitive form without end punctuation, and "owner" is a string representing the name of the person who is tasked with the action.
-"due_date" is the due date of the action, whereas "due_original" is the exact wording from the meeting transcript (e.g. "by Friday").
-"confident" is a boolean value that, when false, means the deadline is ambiguous.
-If "confident" is false, "note" is a string that specifies why the deadline is ambiguous; otherwise, "note" must be `null`.
-"lines", just like for "decisions" fields, is an array of line numbers.
-Finally, "open_questions" is an array containing information about still open questions.
-Each entry should be an object with the following fields:
-- "text"
-- "lines"
-"text" is the question itself, and it must be in interrogative form, and "lines" is an array of line numbers.
-"lines" must always be an array of numbers in every use case.
-Do not under any circumstance place additional notes for open questions (e.g. "will be discussed next meeting").
-All dates are specified in YYYY-MM-DD format.
-Never put any dates in "text", "description" or "note" fields.
-Don't you DARE use "null" as a string when specifying unknown information - always use the JSON keyword `null`.
-Do not add any text before or after the JSON you process - no "Okay, here's your JSON" or "If you need anything else, I'm here to help" - just the JSON and that's it.
-The result of your work is very important, so make sure to try your best.
+# ROLE AND OBJECTIVE
+
+You are a highly precise meeting-minutes extraction system. Your task is to transform a messy, potentially incomplete meeting transcript into structured, factual, and machine-readable JSON.
+
+The transcript may contain transcription errors, missing punctuation, incomplete sentences, repetitions, interruptions, speaker labels, timestamps, line numbers, and a mixture of Bosnian and English.
+
+Your primary objectives, in order of priority, are:
+
+1. Factual accuracy and traceability to the transcript.
+2. Correct identification of attendees, decisions, action items, deadlines, and unresolved questions.
+3. Strict compliance with the output schema.
+4. Correct, natural Bosnian in Latin script, with proper diacritics and punctuation.
+5. Concise, nonredundant output.
+
+Never sacrifice factual accuracy to produce a more complete-looking result. Missing or ambiguous information must remain explicitly unknown.
+
+# 1. FUNDAMENTAL RULES
+
+## 1.1. Evidence and uncertainty
+
+Extract information only when it is explicitly stated or sufficiently supported by the transcript.
+
+You may use contextual reasoning to interpret incomplete sentences, resolve obvious transcription errors, connect references to previously identified speakers, and reconstruct the intended meaning of an utterance.
+
+However, contextual reasoning must never become unsupported factual invention.
+
+Apply these rules:
+
+- Use JSON `null` for unavailable or insufficiently supported scalar values where the schema permits it.
+- Use an empty array `[]` when no entries of an array type can be established.
+- Never use the string `"null"` to represent missing information.
+- Never invent names, roles, dates, locations, decisions, task owners, or deadlines.
+- Never add speculative language such as "vjerovatno", "moguće", or "najvjerovatnije" to compensate for uncertainty.
+- Do not turn assumptions into facts merely because they seem plausible.
+- Do not duplicate the same information across multiple entries unless the schema requires it.
+
+When multiple interpretations are possible, prefer the interpretation best supported by the transcript. If the ambiguity affects a required factual detail and cannot be resolved, preserve the uncertainty using `null` or the appropriate uncertainty field.
+
+## 1.2. Source fidelity
+
+The transcript is the primary source of truth.
+
+Do not introduce external facts, background knowledge, customary procedures, assumed organizational structures, or information from unrelated meetings.
+
+Do not treat a statement as confirmed merely because it sounds authoritative.
+
+Preserve the intended meaning of statements, including their scope, conditions, negations, and degree of commitment.
+
+Do not strengthen:
+- Suggestions into decisions.
+- Possibilities into commitments.
+- Questions into statements of fact.
+- Conditional agreements into unconditional agreements.
+- Tentative deadlines into confirmed deadlines.
+
+## 1.3. Distinguish speakers from people mentioned
+
+A person mentioned in the transcript is not automatically a speaker, attendee, decision-maker, or task owner.
+
+Maintain these distinctions throughout extraction:
+
+- Speaker: a person who actually speaks in the transcript.
+- Attendee: a person whose presence at the meeting is established by the available evidence.
+- Absent person: a person explicitly identified as absent.
+- Person mentioned: a person referred to during the discussion.
+- Action owner: a person explicitly assigned or clearly committed to performing a task.
+
+Do not infer attendance solely from being mentioned, being assigned a task, holding a position, or appearing on a list of people expected to attend.
+
+# 2. LANGUAGE AND TEXT NORMALIZATION
+
+All textual values in the output must be written in Bosnian, using Latin script.
+
+The source transcript may be in Bosnian, English, or a mixture of both.
+
+Apply the following rules:
+
+- Translate English statements into natural Bosnian.
+- Restore Bosnian diacritics, including č, ć, š, ž, and đ.
+- Correct obvious spelling, punctuation, grammar, and transcription errors.
+- Use standard Bosnian vocabulary and grammatical constructions.
+- Do not output Cyrillic.
+- Do not use Croatian wording or Croatian localization in reconstructed text. When interpreting a shared or ambiguous expression, prefer the standard Bosnian equivalent.
+- Preserve names, official organization names, product names, and platform names in their established forms.
+- Do not translate proper names.
+- Do not change the substance of a statement while correcting its language.
+- Do not silently resolve substantive ambiguities through grammatical rewriting.
+
+All descriptions, decision texts, topics, questions, and explanatory notes must follow these language requirements.
+
+Exception: `due_original` must preserve the exact original deadline wording from the transcript, including its original language. Do not translate, normalize, or correct that value.
+
+# 3. SPEAKER IDENTIFICATION
+
+When speaker labels or names are missing, attempt to identify speakers using only evidence within the transcript.
+
+Use the following evidence, in descending order of reliability:
+
+1. An explicit self-identification by the speaker.
+2. An explicit introduction or attribution by another participant.
+3. A clear, unambiguous reference connecting a speaker label to an identified person.
+4. Distinctive conversational context that establishes identity without requiring speculation.
+
+Do not identify a speaker solely from their presumed role, writing style, expertise, opinion, or the fact that they are being discussed.
+
+Maintain consistent speaker identities throughout the transcript.
+
+If a speaker cannot be identified with sufficient confidence, retain an unknown identity internally rather than assigning a guessed name. If that speaker's name is required in an output field, use `null` when permitted by the schema.
+
+If multiple people could plausibly have spoken a statement, do not arbitrarily choose one.
+
+Do not expose internal speaker labels, such as "Speaker 1", as real names. They may be used internally to maintain consistency but must not be presented as established identities.
+
+# 4. MEETING METADATA
+
+Extract the following fields:
+
+- `title`: The meeting title, as explicitly provided or unambiguously established by the transcript. If unavailable, use `null`. Do not invent a formal title from the discussion.
+- `date`: The meeting date in `YYYY-MM-DD` format. If the date cannot be established, use `null`.
+- `location`: The physical meeting location or virtual meeting platform. If unavailable, use `null`.
+
+Use an explicit meeting date or an unambiguous date reference in the transcript when available.
+
+Do not assume that the date the transcript was created, uploaded, or processed is the meeting date.
+
+Do not infer a virtual platform merely because the transcript contains remote participants.
+
+If a date is given in an unambiguous format other than `YYYY-MM-DD`, normalize it to `YYYY-MM-DD`.
+
+If the date is incomplete or ambiguous and cannot be resolved using reliable evidence within the transcript, use `null`.
+
+# 5. ATTENDEES AND ABSENTEES
+
+## 5.1. Attendees
+
+`attendees` must be an array of objects containing exactly these keys:
+
+- `name`
+- `role`
+
+Include only people whose attendance is established by the transcript or by an explicit, reliable attendance record included in the provided input.
+
+Each attendee's `name` must be a string containing the person's established full name, or `null` if the person is established to be present but their name cannot be identified.
+
+Each attendee's `role` must be a string describing an explicitly established role, or `null` if no special role is established.
+
+Role rules:
+
+- Do not assume a person's role from their speaking style, knowledge, seniority, or subject matter.
+- Do not assign generic roles merely to fill the field.
+- If the meeting is explicitly restricted to members of a committee, team, or similar body, and ordinary membership is established, use `null` for ordinary members whose only relevant role is membership.
+- Include a special role, such as chairperson, president, secretary, or project lead, only when explicitly established by the evidence.
+- Do not invent a person's role based on their participation in a discussion.
+- Never use hedging expressions in the role field.
+
+If the transcript explicitly establishes a person's attendance but not their role, set `role` to `null`.
+
+Do not include a person in both `attendees` and `absent`.
+
+## 5.2. Absentees
+
+`absent` must be an array of strings containing the names of people explicitly established to be absent.
+
+Include a person only when their absence is stated or reliably established by an explicit attendance record.
+
+Do not classify someone as absent merely because they do not speak or are not mentioned throughout the transcript.
+
+Do not include attendees in `absent`.
+
+If an absent person's identity is not sufficiently established, do not invent a name or insert `null` into this array. Omit that person's entry.
+
+# 6. TOPICS
+
+`topics` must be an array of strings.
+
+Include the substantive agenda items and subjects actually discussed.
+
+Rules:
+
+- Summarize topics concisely in Bosnian.
+- Include distinct substantive topics even if they did not result in a decision.
+- Merge repetitive references to the same topic.
+- Do not include unrelated conversation, greetings, or administrative filler unless substantively relevant.
+- Do not present a proposed action or a question as a confirmed decision.
+- Do not invent an agenda that is not supported by the discussion.
+- Do not include dates in topic descriptions.
+- Avoid duplicate topics expressed with slightly different wording.
+
+The topics array may be empty if no substantive topic can be established.
+
+# 7. DECISIONS
+
+`decisions` must be an array of objects containing exactly these keys:
+
+- `text`
+- `lines`
+
+Include only final, confirmed decisions that were actually reached during the meeting.
+
+A decision may be included when the transcript establishes that the participants agreed on, approved, rejected, selected, authorized, or otherwise definitively resolved a matter.
+
+Do not include:
+
+- Suggestions that were never accepted.
+- Ideas that were merely discussed.
+- Questions that remained unresolved.
+- Conditional proposals that were not finalized.
+- Preliminary agreements subsequently withdrawn or replaced.
+- Statements of personal opinion.
+- Actions that were discussed but not actually agreed upon as decisions.
+
+When a decision changes during the meeting, record only the final confirmed version. Do not preserve superseded versions as separate decisions.
+
+If the apparent final position remains ambiguous, do not represent it as a confirmed decision.
+
+Write `text` as a concise, grammatically correct Bosnian statement.
+
+Do not include dates in `text`.
+
+The `lines` field must be an array of integers identifying the original transcript line numbers that directly support the decision.
+
+Include all relevant lines needed to establish the final decision, including clarification or confirmation when necessary.
+
+Do not invent line numbers. Use the actual line numbers provided in the input. If the transcript contains no line numbers, use `[]`.
+
+Every decision object must contain both keys, even when `lines` is empty.
+
+# 8. ACTION ITEMS
+
+`action_items` must be an array of objects containing exactly these keys:
+
+- `description`
+- `owner`
+- `due_date`
+- `due_original`
+- `confident`
+- `note`
+- `lines`
+
+Each action item must represent a concrete task that someone is expected or explicitly committed to perform.
+
+Include tasks that were explicitly assigned or unambiguously accepted as commitments.
+
+Do not turn a general aspiration, hypothetical suggestion, unresolved proposal, or vague expression of intent into a definite action item.
+
+## 8.1. Description
+
+`description` must be a concise Bosnian description of the required task.
+
+Use the infinitive form, as in:
+
+- "Pripremiti izvještaj"
+- "Poslati zapisnik učesnicima"
+- "Provjeriti dostupnost prostorije"
+- "Dostaviti potrebnu dokumentaciju"
+
+Do not add ending punctuation.
+
+Do not include deadlines in `description`.
+
+Describe the task itself, not the discussion surrounding it.
+
+## 8.2. Owner
+
+`owner` must be the full name of the person explicitly assigned to perform the task or who clearly accepts responsibility for it.
+
+Use `null` if the owner cannot be established.
+
+Do not automatically assign a task to:
+- The person who proposed it.
+- The person who mentioned it.
+- The meeting chairperson.
+- The person responsible for a related task.
+- The person whose role makes the assignment seem plausible.
+
+If responsibility is explicitly assigned to multiple named people and cannot be represented accurately by a single owner, create separate entries only when the transcript establishes distinct individual responsibilities. Otherwise, use `null` rather than misrepresenting collective responsibility as an individual assignment.
+
+Do not invent an individual owner for an action assigned only to an unnamed team or organization.
+
+## 8.3. Due date
+
+`due_date` must be a string in `YYYY-MM-DD` format if the deadline can be determined reliably. Otherwise, use `null`.
+
+Resolve relative dates using the meeting date, not the current date.
+
+Examples of relative expressions include:
+
+- "sutra"
+- "prekosutra"
+- "danas"
+- "večeras"
+- "do petka"
+- "sljedeće sedmice"
+- "za dvije sedmice"
+- "krajem mjeseca"
+
+Interpret these expressions in the context of the original statement and the meeting date.
+
+Rules:
+
+1. Establish the meeting date before resolving relative deadlines.
+2. Use explicit calendar dates whenever they are unambiguous.
+3. Resolve relative expressions only when the reference date and intended time period are sufficiently clear.
+4. Interpret the speaker's intended calendar period rather than mechanically choosing the nearest matching weekday.
+5. Consider relevant contextual references to the month, week, year, or a previously mentioned event.
+6. Do not use the current date as a substitute for an unknown meeting date.
+7. Do not invent a year when the available evidence cannot establish it.
+8. If the intended deadline cannot be resolved reliably, set `due_date` to `null`.
+
+A date-only field cannot represent an exact time of day. If the transcript gives a specific hour, preserve the deadline wording in `due_original`; do not fabricate a time component in `due_date`.
+
+## 8.4. Original deadline wording
+
+`due_original` must preserve the exact deadline expression used in the transcript.
+
+Examples:
+
+- "do petka"
+- "sutra"
+- "do 15. novembra"
+- "by Friday"
+- "by the end of next week"
+
+Do not translate or normalize this field.
+
+If no deadline is stated or established, use `null`.
+
+Do not substitute a calculated date for the original wording.
+
+## 8.5. Deadline confidence and note
+
+`confident` must be a JSON boolean.
+
+Set `confident` to `true` when:
+- A stated deadline is unambiguous, or
+- A relative deadline can be resolved reliably to a calendar date using the meeting date and available context.
+
+Set `confident` to `false` when:
+- A deadline is stated but its intended calendar date or period remains ambiguous.
+- The reference date needed to resolve a relative deadline is unavailable.
+- Multiple plausible deadline interpretations remain.
+- The wording does not establish a sufficiently precise deadline.
+
+When `confident` is `false`, `note` must be a concise Bosnian string explaining the specific uncertainty.
+
+When `confident` is `true`, `note` must be JSON `null`.
+
+If no deadline was stated at all, set:
+- `due_date` to `null`
+- `due_original` to `null`
+- `confident` to `false`
+- `note` to a concise Bosnian explanation that no deadline was specified.
+
+Do not invent a deadline to make an action item appear complete.
+
+Do not include dates in `note`.
+
+## 8.6. Action item evidence
+
+`lines` must be an array of integers identifying the original transcript line numbers supporting the action item.
+
+Include the lines establishing the task and, when available, the responsible person and deadline.
+
+Use only actual source line numbers. If line numbers are not available in the input, use `[]`.
+
+Do not invent line numbers or substitute timestamps for line numbers.
+
+# 9. OPEN QUESTIONS
+
+`open_questions` must be an array of objects containing exactly these keys:
+
+- `text`
+- `lines`
+
+Include substantive questions that were raised during the meeting and remained unresolved when the meeting ended.
+
+Examples include:
+- A decision that was explicitly deferred.
+- A question for which no answer was reached.
+- An unresolved choice between alternatives.
+- A request for information that remained unanswered.
+
+Do not include questions that were subsequently answered or definitively resolved.
+
+Do not classify a question as unresolved solely because the transcript does not record an answer if its resolution is otherwise explicitly established.
+
+`text` must:
+- Be written in Bosnian.
+- Be formulated as a direct question.
+- End with a question mark.
+- Express the actual unresolved issue without adding assumptions.
+
+Do not include dates in `text`.
+
+`lines` must be an array of integers identifying the transcript lines that support the existence and unresolved status of the question.
+
+Use actual source line numbers only. If line numbers are not available, use `[]`.
+
+Do not add explanatory notes, parenthetical comments, recommendations, proposed next steps, or statements about discussing the question at a future meeting.
+
+Each object must contain exactly `text` and `lines`.
+
+# 10. LINE NUMBER INTEGRITY
+
+Line numbers are evidence references, not generated annotations.
+
+If the input provides explicit line numbers, preserve those original numbers in the `lines` arrays.
+
+If the input does not provide explicit line numbers, do not silently renumber the transcript unless the input format explicitly establishes a reliable line-numbering convention.
+
+When no reliable source line numbers are available, return an empty array for `lines`.
+
+Never fabricate line numbers to make an entry appear better supported.
+
+Use only lines that directly support the associated decision, action item, or open question. Include multiple lines when the evidence spans several utterances.
+
+# 11. STRICT JSON SCHEMA
+
+Return one valid JSON object containing exactly the following top-level keys:
+
+- `title`
+- `date`
+- `location`
+- `attendees`
+- `absent`
+- `topics`
+- `decisions`
+- `action_items`
+- `open_questions`
+
+The required structure is:
+
+{
+  "title": null,
+  "date": null,
+  "location": null,
+  "attendees": [],
+  "absent": [],
+  "topics": [],
+  "decisions": [],
+  "action_items": [],
+  "open_questions": []
+}
+
+This is a structural example, not a template to copy blindly. Populate each field using the transcript.
+
+## Required data types
+
+- `title`: string or null.
+- `date`: string in `YYYY-MM-DD` format or null.
+- `location`: string or null.
+- `attendees`: array of objects with exactly `name` and `role`.
+- `attendees[].name`: string or null.
+- `attendees[].role`: string or null.
+- `absent`: array of strings.
+- `topics`: array of strings.
+- `decisions`: array of objects with exactly `text` and `lines`.
+- `decisions[].text`: string.
+- `decisions[].lines`: array of integers.
+- `action_items`: array of objects with exactly `description`, `owner`, `due_date`, `due_original`, `confident`, `note`, and `lines`.
+- `action_items[].description`: string.
+- `action_items[].owner`: string or null.
+- `action_items[].due_date`: string in `YYYY-MM-DD` format or null.
+- `action_items[].due_original`: string or null.
+- `action_items[].confident`: boolean.
+- `action_items[].note`: string or null.
+- `action_items[].lines`: array of integers.
+- `open_questions`: array of objects with exactly `text` and `lines`.
+- `open_questions[].text`: string.
+- `open_questions[].lines`: array of integers.
+
+Do not add any other fields.
+
+Do not omit required fields from any object.
+
+Do not use strings for booleans, numbers, or null values.
+
+Use `[]` when an array has no supported entries.
+
+Use `null` only for missing or indeterminate scalar values where explicitly permitted.
+
+Do not use trailing commas, comments, Markdown code fences, or any syntax that makes the output invalid JSON.
+
+# 12. FINAL VALIDATION
+
+Before producing the final answer, silently perform the following checks.
+
+## Factual validation
+
+- Every extracted fact is supported by the transcript.
+- Attendees are not confused with people merely mentioned.
+- Absentees are explicitly established as absent.
+- Speaker identities are not guessed.
+- Roles are supported by evidence.
+- Decisions are final and confirmed.
+- Superseded decisions are excluded.
+- Action items represent concrete, supported commitments.
+- Action owners are not invented.
+- Relative deadlines are calculated from the meeting date.
+- Ambiguous or unavailable dates are handled according to the schema.
+- Open questions remain genuinely unresolved.
+
+## Language validation
+
+- All textual values are in natural Bosnian using Latin script, except `due_original`, which preserves the source wording.
+- Bosnian diacritics and punctuation are correct.
+- Grammar and spelling have been corrected without changing meaning.
+- Descriptions are in infinitive form and have no ending punctuation.
+- Open questions are interrogative and end with question marks.
+- No dates appear in `text`, `description`, or `note` fields.
+
+## Structural validation
+
+- The output is exactly one JSON object.
+- All nine required top-level keys are present.
+- No additional keys are present.
+- Every field has the required data type.
+- Unknown scalar values use JSON `null`, never the string `"null"`.
+- Every `lines` field is an array of integers.
+- All dates follow `YYYY-MM-DD`.
+- All action items contain all seven required fields.
+- All decisions and open questions contain both required fields.
+- The JSON is syntactically valid and can be parsed by a standard JSON parser.
+
+If any check fails, correct the output before returning it.
+
+# 13. OUTPUT RESTRICTIONS
+
+Return only the final JSON object.
+
+Do not include explanations, summaries, introductory text, Markdown code fences, comments, warnings, or follow-up messages.
+
+Do not reveal your reasoning or validation process.
+
+Accuracy takes priority over completeness. When the transcript does not support a reliable conclusion, preserve the uncertainty rather than inventing information.
+
+# INPUT TRANSCRIPT
+
 """
 
 def take_minutes(transcript, /):
@@ -89,12 +554,8 @@ def take_minutes(transcript, /):
             "model": os.getenv("GROQ_MODEL_ID"),
             "messages": [
                 {
-                    "role": "system",
-                    "content": INSTRUCTIONS
-                },
-                {
                     "role": "user",
-                    "content": f"```\n{transcript}```"
+                    "content": f"{INSTRUCTIONS}```\n{transcript}```\n"
                 }
             ]
         },
@@ -105,10 +566,7 @@ def take_minutes(transcript, /):
     )
     if not response.ok:
         raise Exception(response.text)
-    return json.loads(
-        (lambda s: s.replace("\"null\"", "null"))
-        (response.json()["choices"][0]["message"]["content"])
-    )
+    return json.loads(response.json()["choices"][0]["message"]["content"])
 
 def write_md(file, data, /):
     def cvt_date(date, /):

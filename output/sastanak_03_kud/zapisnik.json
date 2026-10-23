@@ -1,5 +1,5 @@
 {
-    "title": "Sjednica upravnog odbora KUD Sevdah",
+    "title": null,
     "date": "2026-10-08",
     "location": null,
     "attendees": [
@@ -24,82 +24,91 @@
         "Hamza"
     ],
     "topics": [
-        "Putovanje u Mostar na festival",
-        "Nedoplanjena \u010dlanarina za septembar",
-        "Nova kolekcija nosnji i bud\u017eet"
+        "Organizacija prijevoza za putovanje u Mostar",
+        "Nepla\u0107ene \u010dlanarine za septembar",
+        "Kupovina nove kolekcije nosnji i finansiranje"
     ],
     "decisions": [
         {
-            "text": "Organizacija prijevoza do Mostara za festival objavljen izbor dvije kombija i jednog automobila za opremu.",
+            "text": "Za prijevoz do Mostara koristiti \u0107e se dva kombija i jednog vozila za opremu.",
             "lines": [
-                9,
-                11
+                11,
+                12
             ]
         },
         {
-            "text": "Podno\u0161enje prijave na konkurs Ministarstva kulture za finansiranje nove kolekcije nosnji.",
+            "text": "Aplikovati za konkurs Ministarstva kulture radi finansiranja nove kolekcije nosnji.",
             "lines": [
-                24,
-                25,
-                26,
-                27,
-                28
+                20,
+                21,
+                22,
+                23,
+                24
             ]
         }
     ],
     "action_items": [
         {
-            "description": "Rezervisati dva kombija i jedno auto za opremu",
+            "description": "Izra\u010dunati tro\u0161kove goriva za auto transport opreme",
+            "owner": null,
+            "due_date": null,
+            "due_original": null,
+            "confident": false,
+            "note": "Rok nije naveden u transkriptu.",
+            "lines": [
+                13
+            ]
+        },
+        {
+            "description": "Rezervisati dva kombija za putovanje",
             "owner": "Jasmin",
             "due_date": "2026-10-12",
             "due_original": "do ponedjeljka",
             "confident": true,
             "note": null,
             "lines": [
-                13
+                14
             ]
         },
         {
-            "description": "Poslati podsjetnik o \u010dlanarini \u010dlanovima koji nisu platili za septembar u Viber grupu",
+            "description": "Poslati podsjetnik nepla\u0107enicima \u010dlanarine",
             "owner": "Edina",
             "due_date": "2026-10-09",
             "due_original": "sutra",
             "confident": true,
             "note": null,
             "lines": [
-                16,
-                17
+                17,
+                18
             ]
         },
         {
             "description": "Poslati bud\u017eet Jasminu",
             "owner": "Edina",
-            "due_date": "2026-10-16",
+            "due_date": "2026-10-09",
             "due_original": "do petka",
             "confident": true,
             "note": null,
             "lines": [
-                27
+                23
             ]
         },
         {
             "description": "Napisati prijavu za konkurs Ministarstva kulture",
-            "owner": "Nihad",
+            "owner": "Jasmin",
             "due_date": null,
             "due_original": null,
             "confident": false,
-            "note": "Rok za konkurs je kraj oktobra, ali nije eksplicitno naveden kao deadline za zavr\u0161etak nove prijave, ve\u0107 kao rok za aplikaciju u cjelini.",
+            "note": "Dostupan je samo sporadi\u010dni rok (kraj oktobra), a ne konkretan datum zavr\u0161etka pisanja prijedloga.",
             "lines": [
-                24,
-                27
+                23
             ]
         }
     ],
     "open_questions": [
         {
-            "text": "\u0160ta ako \u010dlanovi ne plate \u010dlanarinu nakon slanja podsjetnika?",
+            "text": "\u0160ta u\u010diniti ako \u010dlanovi i dalje ne plate \u010dlanarine nakon podsjetnika?",
             "lines": [
-                18,
                 19
             ]
         }
