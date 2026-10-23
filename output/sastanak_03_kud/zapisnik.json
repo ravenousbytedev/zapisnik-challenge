@@ -1,0 +1,107 @@
+{
+    "title": "Sjednica upravnog odbora KUD Sevdah",
+    "date": "2026-10-08",
+    "location": null,
+    "attendees": [
+        {
+            "name": "Sanela",
+            "role": null
+        },
+        {
+            "name": "Nihad",
+            "role": null
+        },
+        {
+            "name": "Edina",
+            "role": null
+        },
+        {
+            "name": "Jasmin",
+            "role": null
+        }
+    ],
+    "absent": [
+        "Hamza"
+    ],
+    "topics": [
+        "Putovanje u Mostar na festival",
+        "Nedoplanjena \u010dlanarina za septembar",
+        "Nova kolekcija nosnji i bud\u017eet"
+    ],
+    "decisions": [
+        {
+            "text": "Organizacija prijevoza do Mostara za festival objavljen izbor dvije kombija i jednog automobila za opremu.",
+            "lines": [
+                9,
+                11
+            ]
+        },
+        {
+            "text": "Podno\u0161enje prijave na konkurs Ministarstva kulture za finansiranje nove kolekcije nosnji.",
+            "lines": [
+                24,
+                25,
+                26,
+                27,
+                28
+            ]
+        }
+    ],
+    "action_items": [
+        {
+            "description": "Rezervisati dva kombija i jedno auto za opremu",
+            "owner": "Jasmin",
+            "due_date": "2026-10-12",
+            "due_original": "do ponedjeljka",
+            "confident": true,
+            "note": null,
+            "lines": [
+                13
+            ]
+        },
+        {
+            "description": "Poslati podsjetnik o \u010dlanarini \u010dlanovima koji nisu platili za septembar u Viber grupu",
+            "owner": "Edina",
+            "due_date": "2026-10-09",
+            "due_original": "sutra",
+            "confident": true,
+            "note": null,
+            "lines": [
+                16,
+                17
+            ]
+        },
+        {
+            "description": "Poslati bud\u017eet Jasminu",
+            "owner": "Edina",
+            "due_date": "2026-10-16",
+            "due_original": "do petka",
+            "confident": true,
+            "note": null,
+            "lines": [
+                27
+            ]
+        },
+        {
+            "description": "Napisati prijavu za konkurs Ministarstva kulture",
+            "owner": "Nihad",
+            "due_date": null,
+            "due_original": null,
+            "confident": false,
+            "note": "Rok za konkurs je kraj oktobra, ali nije eksplicitno naveden kao deadline za zavr\u0161etak nove prijave, ve\u0107 kao rok za aplikaciju u cjelini.",
+            "lines": [
+                24,
+                27
+            ]
+        }
+    ],
+    "open_questions": [
+        {
+            "text": "\u0160ta ako \u010dlanovi ne plate \u010dlanarinu nakon slanja podsjetnika?",
+            "lines": [
+                18,
+                19
+            ]
+        }
+    ]
+}

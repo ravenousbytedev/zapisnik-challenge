@@ -1,0 +1,145 @@
+{
+    "title": "Daily standup - tim Kodnica",
+    "date": "2026-10-06",
+    "location": "Google Meet",
+    "attendees": [
+        {
+            "name": "Lamija",
+            "role": null
+        },
+        {
+            "name": "Haris",
+            "role": null
+        },
+        {
+            "name": "Dino",
+            "role": null
+        },
+        {
+            "name": "Ajla",
+            "role": null
+        }
+    ],
+    "absent": [],
+    "topics": [
+        "Status napretka na login ekranu i push notifikacijama",
+        "Review pull requesta",
+        "Rje\u0161avanje problema sa Firebase klju\u010devima za staging okru\u017eenje",
+        "Ispravka gre\u0161ke sa duplim narud\u017ebama (race condition u checkoutu) i testiranje",
+        "Koordinacija s klijentom: finalne boje za tamni re\u017eim i vremenski okvir za demo",
+        "Plan migracije baze podataka na novi server",
+        "Sprint review i a\u017euriranje taskova u Jiri",
+        "Odluka o prelasku na novu verziju React Native-a"
+    ],
+    "decisions": [
+        {
+            "text": "Demo ostaje zakazan za petak u 14:00, a ne za \u010detvrtak.",
+            "lines": [
+                14,
+                15,
+                16
+            ]
+        },
+        {
+            "text": "Migracija baze podataka na novi server izvr\u0161it \u0107e se nakon demoa, po\u010detkom sljede\u0107e sedmice.",
+            "lines": [
+                18,
+                19
+            ]
+        }
+    ],
+    "action_items": [
+        {
+            "description": "pregledati pull request login ekrana",
+            "owner": "Dino",
+            "due_date": "2026-10-06",
+            "due_original": "danas poslije ru\u010dka",
+            "confident": false,
+            "note": "Precizno vrijeme nije specificirano",
+            "lines": [
+                4,
+                5
+            ]
+        },
+        {
+            "description": "dodati Firebase klju\u010deve za staging u vault",
+            "owner": "Lamija",
+            "due_date": "2026-10-06",
+            "due_original": "danas do podne",
+            "confident": true,
+            "note": null,
+            "lines": [
+                7,
+                8
+            ]
+        },
+        {
+            "description": "ru\u010dno testirati cijeli tok narud\u017ebe (checkout flow)",
+            "owner": "Ajla",
+            "due_date": "2026-10-07",
+            "due_original": "sutra ujutro",
+            "confident": false,
+            "note": "Precizno vrijeme nije specificirano",
+            "lines": [
+                11,
+                12
+            ]
+        },
+        {
+            "description": "pitati klijenta za finalne boje za tamni re\u017eim",
+            "owner": "Ajla",
+            "due_date": null,
+            "due_original": null,
+            "confident": false,
+            "note": "Nije specificiran rok za izvr\u0161enje ove radnje",
+            "lines": [
+                13
+            ]
+        },
+        {
+            "description": "dvojati klijentu da je demo zakazan za petak u 14:00",
+            "owner": "Ajla",
+            "due_date": "2026-10-06",
+            "due_original": "danas",
+            "confident": true,
+            "note": null,
+            "lines": [
+                16,
+                17
+            ]
+        },
+        {
+            "description": "pripremiti plan migracije baze podataka",
+            "owner": "Dino",
+            "due_date": "2026-10-09",
+            "due_original": "do tada",
+            "confident": true,
+            "note": null,
+            "lines": [
+                19,
+                20
+            ]
+        },
+        {
+            "description": "a\u017eurirati taskove u Jiri",
+            "owner": "Svi prisutni",
+            "due_date": "2026-10-07",
+            "due_original": "do srijede nave\u010der",
+            "confident": false,
+            "note": "Precizno vrijeme nije specificirano",
+            "lines": [
+                21,
+                22
+            ]
+        }
+    ],
+    "open_questions": [
+        {
+            "text": "Da li prestupamo na novu verziju React Native-a ili ostajemo na staroj?",
+            "lines": [
+                22,
+                23
+            ]
+        }
+    ]
+}
