@@ -15,12 +15,12 @@ This script requires an API key from OpenRouter, as well as a model ID. Check `.
 ### Usage
 
 ```sh
-python3 zapisnik.py <transcript filename> --out <output directory>
+python3 zapisnik.py transcript.txt --out output/
 ```
 
 ## Output
 
-The script will output a `zapisnik.json` file and a `zapisnik.md` file under `<output directory>/<extensionless transcript filename>/`.
+In the above example, the script will output a `zapisnik.json` file and a `zapisnik.md` file under `output/transcript/`.
 
 ### JSON format
 
