@@ -701,16 +701,20 @@ def write_md(file, data, /):
     file.write(f"### Teme\n\n")
     for topic in data["topics"]:
         file.write(f"- {topic}\n\n")
-    file.write(f"### Odluke\n\n| Odluka | Linije |\n|-|-|\n")
-    for decision in data["decisions"]:
-        file.write(f"| {decision["text"]} | {make_lines_text(decision["lines"])} |\n")
-    file.write(
-        f"\n### Zaduženja\n\n| Opis | Osoba | Krajnji rok | Dodatna napomena | Linije |" +
-        "\n|-|-|-|-|-|\n"
-    )
-    for action_item in data["action_items"]:
+    file.write(f"### Odluke\n\n|  | Odluka | Linije |\n|-|-|-|\n")
+    for i in range(len(data["decisions"])):
+        decision = data["decisions"][i]
         file.write(
-            f"| {action_item["description"]} " +
+            f"| {i + 1}. | {decision["text"]} | {make_lines_text(decision["lines"])} |\n"
+        )
+    file.write(
+        f"\n### Zaduženja\n\n|  | Opis | Osoba | Krajnji rok | Dodatna napomena | Linije |" +
+        "\n|-|-|-|-|-|-|\n"
+    )
+    for i in range(len(data["action_items"])):
+        action_item = data["action_items"][i]
+        file.write(
+            f"| {i + 1}. | {action_item["description"]} " +
             f"| {"" if action_item["owner"] is None else action_item["owner"]} | {
                 "?"
                 if action_item["due_date"] is None else
@@ -719,9 +723,13 @@ def write_md(file, data, /):
             f"| {("" if action_item["confident"] else action_item["note"])} " +
             f"| {make_lines_text(action_item["lines"])} |\n"
         )
-    file.write("\n### Otvorena pitanja\n\n| Pitanje | Linije |\n|-|-|\n")
-    for open_questions in data["open_questions"]:
-        file.write(f"| {open_questions["text"]} | {make_lines_text(open_questions["lines"])} |\n")
+    file.write("\n### Otvorena pitanja\n\n|  | Pitanje | Linije |\n|-|-|-|\n")
+    for i in range(len(data["open_questions"])):
+        open_question = data["open_questions"][i]
+        file.write(
+            f"| {i + 1}. | {open_question["text"]} " +
+            f"| {make_lines_text(open_question["lines"])} |\n"
+        )
 
 def main():
     dotenv.load_dotenv()

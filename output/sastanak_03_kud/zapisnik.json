@@ -4,11 +4,11 @@
     "location": null,
     "attendees": [
         {
-            "name": "Sanela",
+            "name": "Nihad",
             "role": null
         },
         {
-            "name": "Nihad",
+            "name": "Edina",
             "role": null
         },
         {
@@ -16,7 +16,7 @@
             "role": null
         },
         {
-            "name": "Edina",
+            "name": "Sanela",
             "role": null
         }
     ],
@@ -24,13 +24,13 @@
         "Hamza"
     ],
     "topics": [
-        "Putovanje na festival u Mostar (14. novembar) \u2013 organizacija prijevoza",
+        "Putovanje na festival u Mostar (14. novembra) i organizacija prijevoza",
         "Nepla\u0107ene \u010dlanarine za septembar",
-        "Nova kolekcija no\u0161nji \u2013 prijavljivanje na konkurs Ministarstva kulture"
+        "Nova kolekcija no\u0161nji i prijavljivanje na konkurs Ministarstva kulture"
     ],
     "decisions": [
         {
-            "text": "Za putovanje na festival u Mostar koristiti dva kombija i jedan auto za opremu.",
+            "text": "Za putovanje na festival u Mostar koristi se prijevoz dva kombija i jedan automobil za opremu umjesto autobusa.",
             "lines": [
                 3,
                 4,
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "text": "Podnijeti prijavu na konkurs Ministarstva kulture za novu kolekciju no\u0161nji.",
+            "text": "Podnijeti prijavljivanje na konkurs Ministarstva kulture za finansiranje nove kolekcije no\u0161nji, rok krajem oktobra.",
             "lines": [
                 20,
                 21,
@@ -56,7 +56,7 @@
     ],
     "action_items": [
         {
-            "description": "Rezervisati dva kombija i auto za opremu za putovanje na festival u Mostar",
+            "description": "Rezervisati dva kombija i jedan automobil za opremu",
             "owner": "Jasmin",
             "due_date": "2026-10-12",
             "due_original": "do ponedjeljka",
@@ -67,43 +67,43 @@
             ]
         },
         {
-            "description": "Poslati podsjetnik za \u010dlanarine u Viber grupu",
+            "description": "Poslati podsjetnik za nepla\u0107ene \u010dlanarine u Viber grupu",
             "owner": "Edina",
             "due_date": "2026-10-09",
             "due_original": "sutra",
             "confident": true,
             "note": null,
             "lines": [
+                16,
                 17
             ]
         },
         {
-            "description": "Poslati bud\u017eet za prijavu na konkurs Ministarstva kulture",
-            "owner": "Edina",
-            "due_date": "2026-10-09",
-            "due_original": "do petka",
-            "confident": true,
-            "note": null,
+            "description": "Napisati prijavu za konkurs Ministarstva kulture",
+            "owner": "Nihad",
+            "due_date": null,
+            "due_original": "ako mi Edina po\u0161alje bud\u017eet do petka",
+            "confident": false,
+            "note": "Rok zavisi od dostavljanja bud\u017eeta od strane Edine do petka",
             "lines": [
-                24,
-                25
+                24
             ]
         },
         {
-            "description": "Napisati prijavu na konkurs Ministarstva kulture za novu kolekciju no\u0161nji",
-            "owner": "Nihad",
-            "due_date": "2026-10-31",
-            "due_original": "kraj oktobra",
-            "confident": true,
-            "note": null,
+            "description": "Izra\u010dunati tro\u0161kove goriva za automobil",
+            "owner": null,
+            "due_date": null,
+            "due_original": null,
+            "confident": false,
+            "note": "Nije odre\u0111eno odgovorno lice niti rok",
             "lines": [
-                24
+                12
             ]
         }
     ],
     "open_questions": [
         {
-            "text": "\u0160ta \u0107e se dogoditi ako \u010dlanovi ne plate \u010dlanarine ni nakon podsjetnika?",
+            "text": "\u0160ta ako \u010dlanovi ne plate \u010dlanarine ni poslije podsjetnika?",
             "lines": [
                 18,
                 19

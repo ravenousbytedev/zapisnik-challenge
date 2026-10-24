@@ -2,13 +2,13 @@
 
 ### Prisutni
 
-- Sanela
-
 - Nihad
+
+- Edina
 
 - Jasmin
 
-- Edina
+- Sanela
 
 ### Odsutni
 
@@ -16,30 +16,30 @@
 
 ### Teme
 
-- Putovanje na festival u Mostar (14. novembar) – organizacija prijevoza
+- Putovanje na festival u Mostar (14. novembra) i organizacija prijevoza
 
 - Neplaćene članarine za septembar
 
-- Nova kolekcija nošnji – prijavljivanje na konkurs Ministarstva kulture
+- Nova kolekcija nošnji i prijavljivanje na konkurs Ministarstva kulture
 
 ### Odluke
 
-| Odluka | Linije |
-|-|-|
-| Za putovanje na festival u Mostar koristiti dva kombija i jedan auto za opremu. | 3-11 |
-| Podnijeti prijavu na konkurs Ministarstva kulture za novu kolekciju nošnji. | 20-24 |
+|  | Odluka | Linije |
+|-|-|-|
+| 1. | Za putovanje na festival u Mostar koristi se prijevoz dva kombija i jedan automobil za opremu umjesto autobusa. | 3-11 |
+| 2. | Podnijeti prijavljivanje na konkurs Ministarstva kulture za finansiranje nove kolekcije nošnji, rok krajem oktobra. | 20-24 |
 
 ### Zaduženja
 
-| Opis | Osoba | Krajnji rok | Dodatna napomena | Linije |
-|-|-|-|-|-|
-| Rezervisati dva kombija i auto za opremu za putovanje na festival u Mostar | Jasmin | 12. 10. 2026. ("do ponedjeljka")|  | 13 |
-| Poslati podsjetnik za članarine u Viber grupu | Edina | 09. 10. 2026. ("sutra")|  | 17 |
-| Poslati budžet za prijavu na konkurs Ministarstva kulture | Edina | 09. 10. 2026. ("do petka")|  | 24-25 |
-| Napisati prijavu na konkurs Ministarstva kulture za novu kolekciju nošnji | Nihad | 31. 10. 2026. ("kraj oktobra")|  | 24 |
+|  | Opis | Osoba | Krajnji rok | Dodatna napomena | Linije |
+|-|-|-|-|-|-|
+| 1. | Rezervisati dva kombija i jedan automobil za opremu | Jasmin | 12. 10. 2026. ("do ponedjeljka")|  | 13 |
+| 2. | Poslati podsjetnik za neplaćene članarine u Viber grupu | Edina | 09. 10. 2026. ("sutra")|  | 16-17 |
+| 3. | Napisati prijavu za konkurs Ministarstva kulture | Nihad | ?| Rok zavisi od dostavljanja budžeta od strane Edine do petka | 24 |
+| 4. | Izračunati troškove goriva za automobil |  | ?| Nije određeno odgovorno lice niti rok | 12 |
 
 ### Otvorena pitanja
 
-| Pitanje | Linije |
-|-|-|
-| Šta će se dogoditi ako članovi ne plate članarine ni nakon podsjetnika? | 18-19 |
+|  | Pitanje | Linije |
+|-|-|-|
+| 1. | Šta ako članovi ne plate članarine ni poslije podsjetnika? | 18-19 |

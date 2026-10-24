@@ -1,5 +1,5 @@
 {
-    "title": "Sastanak Savjeta Mjesne zajednice \"Brijeg\"",
+    "title": "SASTANAK SAVJETA MJESNE ZAJEDNICE \"BRIJEG\"",
     "date": "2026-10-03",
     "location": "prostorije MZ Brijeg",
     "attendees": [
@@ -26,9 +26,9 @@
     ],
     "absent": [],
     "topics": [
-        "Dje\u010dije igrali\u0161te u parku",
-        "Rasvjeta u Ulici branilaca",
-        "Akcija \u010di\u0161\u0107enja obale rijeke"
+        "dje\u010dije igrali\u0161te u parku",
+        "rasvjeta u Ulici branilaca",
+        "akcija \u010di\u0161\u0107enja obale rijeke"
     ],
     "decisions": [
         {
@@ -42,16 +42,17 @@
             ]
         },
         {
-            "text": "Odluka da se po\u0161alje zvani\u010dni dopis op\u0107ini u vezi sa nelijepe rasvjete u Ulici branilaca.",
+            "text": "Odluka da se po\u0161alje zvani\u010dni dopis op\u0107ini u vezi sa neispravnom rasvjetom u Ulici branilaca; Selma Kova\u010d \u043f\u0438\u0448\u0435 dopis do ponedjeljka, Amra Hod\u017ei\u0107 ga potpisuje, a Mirza Ali\u0107 \u0161alje fotografije.",
             "lines": [
                 19,
                 20,
                 21,
-                22
+                22,
+                23
             ]
         },
         {
-            "text": "Akcija \u010di\u0161\u0107enja obale rijeke zakazana za subotu, 24. oktobar 2026. u 10 sati.",
+            "text": "Odluka da se akcija \u010di\u0161\u0107enja obale rijeke odr\u017ei u subotu, 24. oktobra 2026. u 10 sati; Mirza Ali\u0107 nabavlja vre\u0107e i rukavice, a Kenan Mehi\u0107 obavje\u0161tava \u0161kolu i d\u017eemat.",
             "lines": [
                 24,
                 25,
@@ -63,7 +64,7 @@
     ],
     "action_items": [
         {
-            "description": "Prikupiti jo\u0161 dvije ponude za opremu dje\u010dijeg igrali\u0161ta i poslati svim na e-mail",
+            "description": "Prikupljanje jo\u0161 dvije ponude za opremu dje\u010dijeg igrali\u0161ta i slanje na mail",
             "owner": "Kenan Mehi\u0107",
             "due_date": "2026-10-09",
             "due_original": "do petka",
@@ -75,7 +76,7 @@
             ]
         },
         {
-            "description": "Napisati zvani\u010dni dopis op\u0107ini o nelijevoj rasvjeti u Ulici branilaca",
+            "description": "Napisati zvani\u010dni dopis op\u0107ini o neispravnoj rasvjeti u Ulici branilaca",
             "owner": "Selma Kova\u010d",
             "due_date": "2026-10-05",
             "due_original": "do ponedjeljka",
@@ -87,7 +88,7 @@
             ]
         },
         {
-            "description": "Poslati fotografije nelijeve rasvjete Selmi Kova\u010d",
+            "description": "Poslati fotografije neispravne rasvjete Selmi Kova\u010d",
             "owner": "Mirza Ali\u0107",
             "due_date": "2026-10-03",
             "due_original": "ve\u010deras",
@@ -99,34 +100,42 @@
             ]
         },
         {
-            "description": "Nabaviti vre\u0107e i rukavice za akciju \u010di\u0161\u0107enja obale",
-            "owner": "Mirza Ali\u0107",
-            "due_date": null,
-            "due_original": null,
-            "confident": false,
-            "note": "Nije odre\u0111en rok nabavke, niti je rije\u0161eno ko finansira tro\u0161kove (ostavljeno za sljede\u0107i sastanak)",
-            "lines": [
-                28,
-                30,
-                31
-            ]
-        },
-        {
-            "description": "Obavijestiti \u0161kolu i d\u017eemat o akciji \u010di\u0161\u0107enja i oka\u010diti obavijest",
+            "description": "Oka\u010diti obavijest o akciji \u010di\u0161\u0107enja do kraja sedmice",
             "owner": "Kenan Mehi\u0107",
             "due_date": "2026-10-09",
             "due_original": "do kraja sedmice",
             "confident": true,
             "note": null,
             "lines": [
-                28,
                 29
+            ]
+        },
+        {
+            "description": "Nabaviti vre\u0107e i rukavice za akciju \u010di\u0161\u0107enja",
+            "owner": "Mirza Ali\u0107",
+            "due_date": null,
+            "due_original": null,
+            "confident": false,
+            "note": "Rok nije naveden u prepisu",
+            "lines": [
+                28
+            ]
+        },
+        {
+            "description": "Obavjestiti \u0161kolu i d\u017eemat o akciji \u010di\u0161\u0107enja",
+            "owner": "Kenan Mehi\u0107",
+            "due_date": null,
+            "due_original": null,
+            "confident": false,
+            "note": "Rok nije naveden u prepisu",
+            "lines": [
+                28
             ]
         }
     ],
     "open_questions": [
         {
-            "text": "Ko \u0107e platiti vre\u0107e i rukavice za akciju \u010di\u0161\u0107enja obale?",
+            "text": "Ko \u0107e finansirati nabavku vre\u0107a i rukavica za akciju \u010di\u0161\u0107enja?",
             "lines": [
                 30,
                 31

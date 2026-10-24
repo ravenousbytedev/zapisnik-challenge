@@ -22,38 +22,35 @@
     ],
     "absent": [],
     "topics": [
-        "Pregled zadataka i blokera (login screen, push notifikacije, Firebase klju\u010devi)",
-        "Fix buga sa duplim narud\u017ebama i testiranje checkout flowa",
-        "Raspored testiranja checkout flowa",
-        "Pitanje klijenta o pomjeranju demo termina",
+        "Pregled pull requesta za login screen",
+        "Rad na push notifikacijama",
+        "Firebase klju\u010devi za staging environment",
+        "Popravak bag sa duplim narud\u017ebama i deployment na staging",
+        "Ru\u010dno testiranje checkout flow-a",
+        "Sastanak s klijentom: boje za dark mode i raspored demo prezentacije",
         "Migracija baze na novi server",
         "Sprint review i a\u017euriranje zadataka u Jiri",
         "Odluka o nadogradnji React Native verzije"
     ],
     "decisions": [
         {
-            "text": "Demo ostaje na petak u 14h kako je ranije dogovoreno.",
+            "text": "Demo prezentacija ostaje zakazana za petak u 14h.",
             "lines": [
                 15,
                 16,
-                17,
-                18
+                17
             ]
         },
         {
-            "text": "Migracija baze na novi server \u0107e se izvr\u0161iti nakon demoa, po\u010detkom sljede\u0107e sedmice.",
+            "text": "Migracija baze na novi server \u0107e se obaviti nakon demo prezentacije, po\u010detkom sljede\u0107e sedmice.",
             "lines": [
-                20
+                19,
+                20,
+                21
             ]
         },
         {
-            "text": "Sprint review je zakazan za \u010detvrtak 15. oktobra, svi zadaci u Jiri moraju biti a\u017eurirani do srijede nave\u010der.",
-            "lines": [
-                22
-            ]
-        },
-        {
-            "text": "Odluka o nadogradnji React Native verzije odlo\u017eena na sprint review.",
+            "text": "Odluka o prelasku na novu verziju React Native-a odlo\u017eena na sprint review.",
             "lines": [
                 23,
                 24
@@ -70,8 +67,7 @@
             "note": null,
             "lines": [
                 6,
-                7,
-                8
+                7
             ]
         },
         {
@@ -101,10 +97,10 @@
         {
             "description": "Pitati klijenta za finalne boje za dark mode",
             "owner": "Ajla",
-            "due_date": "2026-10-06",
-            "due_original": "danas",
-            "confident": true,
-            "note": null,
+            "due_date": null,
+            "due_original": null,
+            "confident": false,
+            "note": "Rok nije explicitno naveden.",
             "lines": [
                 14,
                 15
@@ -123,14 +119,13 @@
             ]
         },
         {
-            "description": "Pripremiti plan migracije baze na novi server",
+            "description": "Pripremiti plan migracije baze",
             "owner": "Dino",
             "due_date": "2026-10-12",
             "due_original": "po\u010detkom sljede\u0107e sedmice",
             "confident": true,
             "note": null,
             "lines": [
-                19,
                 20,
                 21
             ]
@@ -138,7 +133,7 @@
         {
             "description": "A\u017eurirati zadatke u Jiri",
             "owner": null,
-            "due_date": "2026-10-14",
+            "due_date": "2026-10-07",
             "due_original": "do srijede nave\u010der",
             "confident": true,
             "note": null,
@@ -149,7 +144,7 @@
     ],
     "open_questions": [
         {
-            "text": "Da li tim prelazi na novu verziju React Native-a ili ostaje na staroj?",
+            "text": "Da li se prelazi na novu verziju React Native-a ili ostaje na staroj?",
             "lines": [
                 23,
                 24
