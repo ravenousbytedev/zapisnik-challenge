@@ -1,5 +1,5 @@
 {
-    "title": null,
+    "title": "Sjednica Upravnog odbora KUD Sevdah",
     "date": "2026-10-08",
     "location": null,
     "attendees": [
@@ -12,11 +12,11 @@
             "role": null
         },
         {
-            "name": "Edina",
+            "name": "Jasmin",
             "role": null
         },
         {
-            "name": "Jasmin",
+            "name": "Edina",
             "role": null
         }
     ],
@@ -24,20 +24,27 @@
         "Hamza"
     ],
     "topics": [
-        "Organizacija prijevoza za putovanje u Mostar",
+        "Putovanje na festival u Mostar (14. novembar) \u2013 organizacija prijevoza",
         "Nepla\u0107ene \u010dlanarine za septembar",
-        "Kupovina nove kolekcije nosnji i finansiranje"
+        "Nova kolekcija no\u0161nji \u2013 prijavljivanje na konkurs Ministarstva kulture"
     ],
     "decisions": [
         {
-            "text": "Za prijevoz do Mostara koristiti \u0107e se dva kombija i jednog vozila za opremu.",
+            "text": "Za putovanje na festival u Mostar koristiti dva kombija i jedan auto za opremu.",
             "lines": [
-                11,
-                12
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
             ]
         },
         {
-            "text": "Aplikovati za konkurs Ministarstva kulture radi finansiranja nove kolekcije nosnji.",
+            "text": "Podnijeti prijavu na konkurs Ministarstva kulture za novu kolekciju no\u0161nji.",
             "lines": [
                 20,
                 21,
@@ -49,66 +56,56 @@
     ],
     "action_items": [
         {
-            "description": "Izra\u010dunati tro\u0161kove goriva za auto transport opreme",
-            "owner": null,
-            "due_date": null,
-            "due_original": null,
-            "confident": false,
-            "note": "Rok nije naveden u transkriptu.",
-            "lines": [
-                13
-            ]
-        },
-        {
-            "description": "Rezervisati dva kombija za putovanje",
+            "description": "Rezervisati dva kombija i auto za opremu za putovanje na festival u Mostar",
             "owner": "Jasmin",
             "due_date": "2026-10-12",
             "due_original": "do ponedjeljka",
             "confident": true,
             "note": null,
             "lines": [
-                14
+                13
             ]
         },
         {
-            "description": "Poslati podsjetnik nepla\u0107enicima \u010dlanarine",
+            "description": "Poslati podsjetnik za \u010dlanarine u Viber grupu",
             "owner": "Edina",
             "due_date": "2026-10-09",
             "due_original": "sutra",
             "confident": true,
             "note": null,
             "lines": [
-                17,
-                18
+                17
             ]
         },
         {
-            "description": "Poslati bud\u017eet Jasminu",
+            "description": "Poslati bud\u017eet za prijavu na konkurs Ministarstva kulture",
             "owner": "Edina",
             "due_date": "2026-10-09",
             "due_original": "do petka",
             "confident": true,
             "note": null,
             "lines": [
-                23
+                24,
+                25
             ]
         },
         {
-            "description": "Napisati prijavu za konkurs Ministarstva kulture",
-            "owner": "Jasmin",
-            "due_date": null,
-            "due_original": null,
-            "confident": false,
-            "note": "Dostupan je samo sporadi\u010dni rok (kraj oktobra), a ne konkretan datum zavr\u0161etka pisanja prijedloga.",
+            "description": "Napisati prijavu na konkurs Ministarstva kulture za novu kolekciju no\u0161nji",
+            "owner": "Nihad",
+            "due_date": "2026-10-31",
+            "due_original": "kraj oktobra",
+            "confident": true,
+            "note": null,
             "lines": [
-                23
+                24
             ]
         }
     ],
     "open_questions": [
         {
-            "text": "\u0160ta u\u010diniti ako \u010dlanovi i dalje ne plate \u010dlanarine nakon podsjetnika?",
+            "text": "\u0160ta \u0107e se dogoditi ako \u010dlanovi ne plate \u010dlanarine ni nakon podsjetnika?",
             "lines": [
+                18,
                 19
             ]
         }

@@ -43,7 +43,7 @@ Apply these rules:
 - Do not turn assumptions into facts merely because they seem plausible.
 - Do not duplicate the same information across multiple entries unless the schema requires it.
 
-When multiple interpretations are possible, prefer the interpretation best supported by the transcript. If the ambiguity affects a required factual detail and cannot be resolved, preserve the uncertainty using `null` or the appropriate uncertainty field.
+When multiple interpretations are possible, evaluate the full transcript, including cross-references, direct forms of address, participant lists, repeated conversational patterns, and valid elimination across distinct speaker labels. Resolve ambiguity whenever this evidence establishes a unique, sufficiently supported interpretation. If the ambiguity cannot be resolved reliably, preserve the uncertainty using `null` or the appropriate uncertainty field. Do not leave an identity unknown merely because it is not explicitly attached to a numbered speaker label when the transcript establishes it through reliable cross-reference or elimination.
 
 ## 1.2. Source fidelity
 
@@ -99,26 +99,123 @@ All descriptions, decision texts, topics, questions, and explanatory notes must 
 
 Exception: `due_original` must preserve the exact original deadline wording from the transcript, including its original language. Do not translate, normalize, or correct that value.
 
-# 3. SPEAKER IDENTIFICATION
+# 3. SPEAKER IDENTIFICATION AND CROSS-REFERENCE RESOLUTION
 
-When speaker labels or names are missing, attempt to identify speakers using only evidence within the transcript.
+When speaker labels or names are missing, incomplete, or represented only by numbered labels such as "Speaker 1", "Speaker 2", or "Govornik 1", actively reconstruct speaker identities using all reliable evidence available throughout the entire transcript.
+
+**The objective is to identify the actual person behind each speaker label whenever the transcript provides sufficient direct, contextual, or relational evidence. Do not leave a speaker unidentified merely because their name is never explicitly attached to their numbered speaker label.**
+
+## 3.1. Evidence sources
 
 Use the following evidence, in descending order of reliability:
 
-1. An explicit self-identification by the speaker.
-2. An explicit introduction or attribution by another participant.
-3. A clear, unambiguous reference connecting a speaker label to an identified person.
-4. Distinctive conversational context that establishes identity without requiring speculation.
+1. Explicit self-identification, including statements such as "Ja sam Amir", "Ovdje Lejla" or "Moje ime je Haris".
+2. Explicit attribution by another participant, including statements that directly associate a name with a speaker.
+3. Direct forms of address, including instances where one participant calls another participant by name, such as "Amire, možeš li objasniti?" or "Lejla, slažeš li se?"
+4. An explicitly stated meeting roster, attendance list, participant introduction, or roll call that establishes the names of people participating in the meeting.
+5. Repeated conversational patterns that reliably connect a numbered speaker label with a person identified elsewhere in the transcript.
+6. Cross-reference and elimination reasoning based on the established identities of other speakers, provided that the remaining candidate is uniquely determined and the underlying assumptions are supported by the transcript.
+7. Other contextual evidence that establishes identity without relying on speculative assumptions about occupation, seniority, expertise, opinions, writing style, or presumed organizational roles.
 
-Do not identify a speaker solely from their presumed role, writing style, expertise, opinion, or the fact that they are being discussed.
+Use multiple independent pieces of evidence whenever possible. A single weak contextual clue must not override explicit contradictory evidence.
 
-Maintain consistent speaker identities throughout the transcript.
+## 3.2. Global identity-resolution procedure
 
-If a speaker cannot be identified with sufficient confidence, retain an unknown identity internally rather than assigning a guessed name. If that speaker's name is required in an output field, use `null` when permitted by the schema.
+Do not identify speakers by analyzing each utterance in isolation. Build and continuously update a global speaker-identity map covering the entire transcript.
 
-If multiple people could plausibly have spoken a statement, do not arbitrarily choose one.
+For each numbered or otherwise unidentified speaker:
 
-Do not expose internal speaker labels, such as "Speaker 1", as real names. They may be used internally to maintain consistency but must not be presented as established identities.
+1. Collect every utterance attributed to that speaker label.
+2. Identify all names explicitly used by that speaker or by other participants when addressing or referring to that speaker.
+3. Distinguish names used to address the speaker from names used to refer to third parties.
+4. Identify the people explicitly listed as meeting participants, including any names provided during introductions, roll calls, or attendance checks.
+5. Associate speaker labels with names when direct evidence supports the association.
+6. Track which established identities have already been assigned to other distinct speaker labels.
+7. Compare the remaining unidentified speaker labels against the remaining plausible participant identities.
+8. Resolve an identity through elimination only when the candidate set, relevant speaker distinctions, and participant roster are sufficiently established to make the conclusion unique.
+9. Revisit earlier identifications whenever new evidence appears later in the transcript.
+10. Resolve all speaker identities before finalizing attendee names, action owners, decisions, or other fields that depend on speaker attribution.
+
+Do not finalize an identity prematurely. Later utterances may establish a name that was initially unknown or reveal that an earlier attribution was incorrect.
+
+## 3.3. Name inference through elimination
+
+**When a transcript contains a complete or otherwise reliably established list of meeting participants, and all but one participant can be confidently matched to distinct numbered speaker labels, infer the remaining speaker's name for the final unmatched speaker label if the transcript supports a one-to-one correspondence.**
+
+For example, suppose the transcript establishes that the meeting participants are Amir, Lejla, Haris, and Selma. The transcript contains four distinct numbered speakers. Direct forms of address and other reliable evidence establish that:
+
+- Speaker 1 is Amir.
+- Speaker 2 is Lejla.
+- Speaker 3 is Haris.
+- No direct identification of Speaker 4 has been found.
+
+If the evidence establishes that all four listed people are the four distinct speakers, with no additional speakers or ambiguity about attendance, identify Speaker 4 as Selma.
+
+Do not leave Speaker 4 unidentified simply because nobody explicitly says "I am Selma" or directly addresses Speaker 4 by that name.
+
+Apply this reasoning to any number of participants and speakers, not just four.
+
+However, elimination is valid only when its prerequisites are supported. Do not force a match when:
+
+- The participant list may be incomplete.
+- Some listed people may be attendees who never speak.
+- The transcript may contain additional unlisted speakers.
+- A single person may appear under multiple speaker labels.
+- Multiple people share the same name.
+- The number of established participants differs from the number of distinct speakers without a reliable explanation.
+- An allegedly identified participant may actually be a person mentioned rather than a participant.
+- Two or more candidate identities remain plausible.
+
+In these cases, preserve the identity as unknown unless further evidence resolves the ambiguity.
+
+## 3.4. Interpreting names used in conversation
+
+Names used during conversation are valuable identity evidence, but their grammatical and conversational function must be interpreted correctly.
+
+Distinguish between:
+
+- **Direct address:** "Amire, pošalji nam izvještaj." The name identifies the person being addressed, not necessarily the speaker.
+- **Self-reference:** "Ja sam Amir" or "Kao što sam ranije rekao, ja, Amir..." The name identifies the speaker when the context is unambiguous.
+- **Third-party reference:** "Amir će poslati izvještaj." This identifies Amir as the person being discussed, not automatically as the current speaker or an attendee.
+- **Reported speech:** "Lejla mi je rekla: 'Amire, dođi sutra.'" The name in the quoted statement does not automatically identify the current speaker.
+- **Vocative or conversational shorthand:** A name may refer to the person being addressed, but only when the utterance's context supports that interpretation.
+- **Ambiguous name usage:** If it is unclear whether a name identifies the speaker, the addressee, or a third party, do not treat the reference as conclusive evidence.
+
+When a participant repeatedly addresses a numbered speaker by the same name, consistently use that evidence to establish the addressee's identity, provided the conversational structure makes the reference unambiguous.
+
+## 3.5. Identity consistency and conflicting evidence
+
+Maintain a consistent mapping between speaker labels and real identities throughout the transcript.
+
+A confirmed identity must not be arbitrarily reassigned to another distinct speaker label.
+
+If two labels appear to correspond to the same person, determine whether the transcript supports a repeated label, transcription error, label inconsistency, or two distinct individuals. Do not assume that either label represents a different person merely because its number differs.
+
+If explicit evidence conflicts with an inferred identity, prioritize the strongest direct evidence and reassess the inference.
+
+If the transcript establishes that a name belongs to a particular speaker, use that name consistently even when the person is not directly addressed by name in every utterance.
+
+Never present an internally generated label, such as "Speaker 1", as a person's real name.
+
+## 3.6. Confidence threshold and downstream use
+
+Infer names when the evidence is sufficiently strong, including through valid elimination, rather than defaulting unnecessarily to an unknown identity.
+
+At the same time, do not invent identities merely to complete the mapping.
+
+A name may be used in an output field only when its association with the relevant person is supported by the transcript. If multiple interpretations remain plausible and the schema permits an unknown value, use `null`.
+
+Apply the resolved identity map consistently to:
+
+- `attendees`: include the established name of a person whose attendance is supported by the evidence.
+- `absent`: include only people explicitly established to be absent.
+- `action_items.owner`: use the resolved name when the task assignment or accepted commitment can be reliably attributed to that person.
+- `decisions.lines` and `action_items.lines`: cite the original lines supporting the relevant facts, including identity evidence when needed.
+- `open_questions`: preserve the substance of unresolved issues without introducing unsupported attribution.
+
+A person's identity and attendance are separate questions. Successfully identifying a speaker does not, by itself, establish the identity of every other attendee or prove that every person on a roster was present.
+
+Do not expose internal candidate lists, identity maps, elimination steps, confidence assessments, or reasoning in the final output. Return only the JSON required by the output schema.
 
 # 4. MEETING METADATA
 
@@ -148,6 +245,8 @@ If the date is incomplete or ambiguous and cannot be resolved using reliable evi
 - `role`
 
 Include only people whose attendance is established by the transcript or by an explicit, reliable attendance record included in the provided input.
+
+A participant's name may be established through the speaker-identification and cross-reference procedure in Section 3, including valid elimination from a complete participant roster. Do not require the name to be explicitly spoken by that person or directly attached to their speaker label. However, identifying a person as a speaker does not justify including other people from a participant list unless their attendance is independently established.
 
 Each attendee's `name` must be a string containing the person's established full name, or `null` if the person is established to be present but their name cannot be identified.
 
@@ -411,17 +510,21 @@ Each object must contain exactly `text` and `lines`.
 
 # 10. LINE NUMBER INTEGRITY
 
-Line numbers are evidence references, not generated annotations.
+Line numbers are evidence references to the transcript's original text, not generated annotations that must already exist.
 
-If the input provides explicit line numbers, preserve those original numbers in the `lines` arrays.
+Determine line numbers from the transcript exactly as it appears in the input message, even when the transcript is embedded directly in the message rather than provided as a file.
 
-If the input does not provide explicit line numbers, do not silently renumber the transcript unless the input format explicitly establishes a reliable line-numbering convention.
+If the transcript does not contain explicit line numbers, infer them by counting physical lines of text, starting with line 1 at the first line of the transcript itself. Do not count system instructions, user instructions, surrounding explanations, or other text outside the transcript.
 
-When no reliable source line numbers are available, return an empty array for `lines`.
+Count each newline-separated line as one line, including blank lines if they occur within the transcript. Do not count the surrounding Markdown code fences or other formatting delimiters as transcript lines.
 
-Never fabricate line numbers to make an entry appear better supported.
+If the input provides explicit, reliable source line numbers, preserve those original numbers in the `lines` arrays rather than recalculating them.
 
-Use only lines that directly support the associated decision, action item, or open question. Include multiple lines when the evidence spans several utterances.
+When explicit line numbers are absent, use the inferred line numbers. Do not return an empty `lines` array merely because the transcript was not pre-numbered or provided as a file.
+
+Use only line numbers that correspond to actual lines in the provided transcript and directly support the associated decision, action item, or open question. Include multiple line numbers when the evidence spans several utterances.
+
+Never invent line numbers, use numbers outside the transcript's actual line range, or cite lines that do not support the associated entry. If the transcript is genuinely absent, empty, or impossible to map reliably to lines, return an empty array for `lines`.
 
 # 11. STRICT JSON SCHEMA
 
@@ -549,9 +652,9 @@ Accuracy takes priority over completeness. When the transcript does not support 
 
 def take_minutes(transcript, /):
     response = requests.post(
-        "https://api.groq.com/openai/v1/chat/completions",
+        "https://openrouter.ai/api/v1/chat/completions",
         json={
-            "model": os.getenv("GROQ_MODEL_ID"),
+            "model": os.getenv("OPENROUTER_MODEL_ID"),
             "messages": [
                 {
                     "role": "user",
@@ -561,7 +664,7 @@ def take_minutes(transcript, /):
         },
         headers={
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {os.getenv("GROQ_API_KEY")}"
+            "Authorization": f"Bearer {os.getenv("OPENROUTER_API_KEY")}"
         }
     )
     if not response.ok:
@@ -570,7 +673,9 @@ def take_minutes(transcript, /):
 
 def write_md(file, data, /):
     def cvt_date(date, /):
-        return datetime.datetime.strftime(datetime.datetime.strptime(date, "%Y-%m-%d"), "%d. %m. %Y.")
+        return datetime.datetime.strftime(
+            datetime.datetime.strptime(date, "%Y-%m-%d"), "%d. %m. %Y."
+        )
     def make_lines_text(lines, /):
         return (
             ""
@@ -580,8 +685,9 @@ def write_md(file, data, /):
             f"{lines[0]}-{lines[-1]}"
         )
     file.write(
-        f"# {data["title"]} ({data["location"]}, {cvt_date(data["date"])})\n\n" +
-        "### Prisutni\n\n"
+        f"# {data["title"]} (" +
+        f"{"" if data["location"] is None else f"{data["location"]}, "}" +
+        f"{cvt_date(data["date"])})\n\n### Prisutni\n\n"
     )
     for attendee in data["attendees"]:
         file.write(
@@ -604,8 +710,8 @@ def write_md(file, data, /):
     )
     for action_item in data["action_items"]:
         file.write(
-            f"| {action_item["description"]} | {action_item["owner"]} " +
-            f"| {
+            f"| {action_item["description"]} " +
+            f"| {"" if action_item["owner"] is None else action_item["owner"]} | {
                 "?"
                 if action_item["due_date"] is None else
                 f"{cvt_date(action_item["due_date"])} (\"{action_item["due_original"]}\")"

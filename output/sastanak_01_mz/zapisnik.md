@@ -1,4 +1,4 @@
-# Sastanak Savjeta mjesne zajednice "Brijeg" (prostorije MZ Brijeg, 03. 10. 2026.)
+# Sastanak Savjeta Mjesne zajednice "Brijeg" (prostorije MZ Brijeg, 03. 10. 2026.)
 
 ### Prisutni
 
@@ -14,32 +14,32 @@
 
 ### Teme
 
-- Kupa dječije igralište u parku
+- Dječije igralište u parku
 
-- Nefunkcionalna rasvjeta u Ulici branilaca
+- Rasvjeta u Ulici branilaca
 
-- Organizacija akcije čišćenja obale rijeke
+- Akcija čišćenja obale rijeke
 
 ### Odluke
 
 | Odluka | Linije |
 |-|-|
-| Tražiti će se dodatne dvije ponude za opremu dječijeg igrališta prije donošenja odluke o nabavci. | 8-11 |
-| Poslati će se zvaničan dopis Općini radi spravljenja kvarova rasvjete u Ulici branilaca. | 16-17 |
-| Akcija čišćenja obale rijeke zakazana je za subotu, 24. oktobra, u 10:00 sati. | 22-25 |
+| Odluka da se prikupe još dvije ponude za opremu dječijeg igrališta prije donošenja konačne odluke. | 10-14 |
+| Odluka da se pošalje zvanični dopis općini u vezi sa nelijepe rasvjete u Ulici branilaca. | 19-22 |
+| Akcija čišćenja obale rijeke zakazana za subotu, 24. oktobar 2026. u 10 sati. | 24-28 |
 
 ### Zaduženja
 
 | Opis | Osoba | Krajnji rok | Dodatna napomena | Linije |
 |-|-|-|-|-|
-| Prikupiti dodatne dvije ponude za dječije igralište i poslati ih učesnicima sastanka | Kenan Mehić | 09. 10. 2026. ("do petka")|  | 12-13 |
-| Napisati dopis Općini za popravku rasvjete u Ulici branilaca | Selma Kovač | 12. 10. 2026. ("do ponedjeljka")|  | 18-19 |
-| Poslati fotografije kvarne rasvjete Selmi Kovač | Mirza Alić | 03. 10. 2026. ("večeras")|  | 21-22 |
-| Nabaviti vreće i rukavice za akciju čišćenja | Mirza Alić | ?| Rok nije specificiran, odgovornost je naslovljena na organizaciju akcije. | 26 |
-| Obavijestiti školu i džemat o akciji čišćenja čime će se okačiti obavještenje | Kenan Mehić | 10. 10. 2026. ("do kraja sedmice")|  | 26-27 |
+| Prikupiti još dvije ponude za opremu dječijeg igrališta i poslati svim na e-mail | Kenan Mehić | 09. 10. 2026. ("do petka")|  | 13-14 |
+| Napisati zvanični dopis općini o nelijevoj rasvjeti u Ulici branilaca | Selma Kovač | 05. 10. 2026. ("do ponedjeljka")|  | 19-20 |
+| Poslati fotografije nelijeve rasvjete Selmi Kovač | Mirza Alić | 03. 10. 2026. ("večeras")|  | 22-23 |
+| Nabaviti vreće i rukavice za akciju čišćenja obale | Mirza Alić | ?| Nije određen rok nabavke, niti je riješeno ko finansira troškove (ostavljeno za sljedeći sastanak) | 28-31 |
+| Obavijestiti školu i džemat o akciji čišćenja i okačiti obavijest | Kenan Mehić | 09. 10. 2026. ("do kraja sedmice")|  | 28-29 |
 
 ### Otvorena pitanja
 
 | Pitanje | Linije |
 |-|-|
-| Na koji način će se platiti nabavka vreća i rukavica za akciju čišćenja? | 28-29 |
+| Ko će platiti vreće i rukavice za akciju čišćenja obale? | 30-31 |

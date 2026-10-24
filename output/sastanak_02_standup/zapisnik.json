@@ -22,50 +22,56 @@
     ],
     "absent": [],
     "topics": [
-        "Status zavr\u0161enog login ekrana i potreba za pregledom koda",
-        "Razvoj push notifikacija",
-        "Ispravka gre\u0161ke (bug) kod dvostrukih narud\u017ebi i testiranje checkout procesa",
-        "Dodavanje Firebase klju\u010deva za staging u sigurnosni kavez (vault)",
-        "Kona\u010dne boje za tamni na\u010din (dark mode) koje klijent mora potvrditi",
-        "Termin demo prezentacije klijentu",
-        "Plan migracije baze podataka na novi server",
-        "Priprema za op\u0107i pregled sprinta (sprint review)",
-        "Odluka o prelasku na novu verziju React Native-a"
+        "Pregled zadataka i blokera (login screen, push notifikacije, Firebase klju\u010devi)",
+        "Fix buga sa duplim narud\u017ebama i testiranje checkout flowa",
+        "Raspored testiranja checkout flowa",
+        "Pitanje klijenta o pomjeranju demo termina",
+        "Migracija baze na novi server",
+        "Sprint review i a\u017euriranje zadataka u Jiri",
+        "Odluka o nadogradnji React Native verzije"
     ],
     "decisions": [
         {
-            "text": "Demo prezentacija klijentu \u0107e se odr\u017eati u petak u 14:00.",
+            "text": "Demo ostaje na petak u 14h kako je ranije dogovoreno.",
             "lines": [
-                22,
-                23
+                15,
+                16,
+                17,
+                18
             ]
         },
         {
-            "text": "Migracija baze podataka na novi server obavlja se nakon demo prezentacije, po\u010detkom sljede\u0107e sedmice.",
+            "text": "Migracija baze na novi server \u0107e se izvr\u0161iti nakon demoa, po\u010detkom sljede\u0107e sedmice.",
             "lines": [
-                25,
-                26
+                20
             ]
         },
         {
-            "text": "Op\u0107i pregled sprinta (sprint review) odr\u017eat \u0107e se u \u010detvrtak u 15:00.",
+            "text": "Sprint review je zakazan za \u010detvrtak 15. oktobra, svi zadaci u Jiri moraju biti a\u017eurirani do srijede nave\u010der.",
             "lines": [
-                28
+                22
+            ]
+        },
+        {
+            "text": "Odluka o nadogradnji React Native verzije odlo\u017eena na sprint review.",
+            "lines": [
+                23,
+                24
             ]
         }
     ],
     "action_items": [
         {
-            "description": "Praviti pregled (review) PR-a za login ekran",
+            "description": "Uraditi code review Harisovog pull requesta za login screen",
             "owner": "Dino",
             "due_date": "2026-10-06",
             "due_original": "danas poslije ru\u010dka",
             "confident": true,
             "note": null,
             "lines": [
-                4,
-                5,
-                6
+                6,
+                7,
+                8
             ]
         },
         {
@@ -81,10 +87,22 @@
             ]
         },
         {
-            "description": "Ru\u010dno testirati cijeli checkout proces",
+            "description": "Ru\u010dno testirati cijeli checkout flow",
             "owner": "Ajla",
             "due_date": "2026-10-07",
             "due_original": "sutra ujutro",
+            "confident": true,
+            "note": null,
+            "lines": [
+                12,
+                13
+            ]
+        },
+        {
+            "description": "Pitati klijenta za finalne boje za dark mode",
+            "owner": "Ajla",
+            "due_date": "2026-10-06",
+            "due_original": "danas",
             "confident": true,
             "note": null,
             "lines": [
@@ -93,10 +111,10 @@
             ]
         },
         {
-            "description": "Pitati klijenta za kona\u010dne boje za dark mode",
+            "description": "Javiti klijentu da je demo u petak u 14h",
             "owner": "Ajla",
             "due_date": "2026-10-06",
-            "due_original": "kad si ve\u0107 sa klijentom",
+            "due_original": "danas",
             "confident": true,
             "note": null,
             "lines": [
@@ -105,47 +123,36 @@
             ]
         },
         {
-            "description": "Obavijestiti klijenta da demo prezentacija ostaje u petak u 14:00",
-            "owner": "Ajla",
-            "due_date": "2026-10-06",
-            "due_original": "danas",
+            "description": "Pripremiti plan migracije baze na novi server",
+            "owner": "Dino",
+            "due_date": "2026-10-12",
+            "due_original": "po\u010detkom sljede\u0107e sedmice",
             "confident": true,
             "note": null,
             "lines": [
-                23,
-                24
+                19,
+                20,
+                21
             ]
         },
         {
-            "description": "Pripremiti plan migracije baze podataka",
-            "owner": "Dino",
-            "due_date": null,
-            "due_original": "do tada",
-            "confident": false,
-            "note": "Rok je definiran kao period do po\u010detka sljede\u0107e sedmice, \u0161to nije to\u010dan datum.",
-            "lines": [
-                26,
-                27
-            ]
-        },
-        {
-            "description": " a\u017eurirati zadatke u Jiri",
+            "description": "A\u017eurirati zadatke u Jiri",
             "owner": null,
-            "due_date": "2026-10-07",
+            "due_date": "2026-10-14",
             "due_original": "do srijede nave\u010der",
             "confident": true,
             "note": null,
             "lines": [
-                28
+                22
             ]
         }
     ],
     "open_questions": [
         {
-            "text": "Da li se prelazi na novu verziju React Native-a ili se ostaje na staroj?",
+            "text": "Da li tim prelazi na novu verziju React Native-a ili ostaje na staroj?",
             "lines": [
-                29,
-                30
+                23,
+                24
             ]
         }
     ]
