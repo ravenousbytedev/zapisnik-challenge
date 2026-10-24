@@ -745,9 +745,6 @@ def main():
     namesp = parser.parse_args()
     if not os.path.exists(namesp.FILENAME) or not os.path.isfile(namesp.FILENAME):
         raise FileNotFoundError(namesp.FILENAME)
-    with open(namesp.FILENAME) as file:
-        data = take_minutes(file.read())
-        file.close()
     if not os.path.exists(namesp.out):
         os.mkdir(namesp.out)
     elif not os.path.isdir(namesp.out):
@@ -757,6 +754,9 @@ def main():
         os.mkdir(dir)
     elif not os.path.isdir(dir):
         raise NotADirectoryError(dir)
+    with open(namesp.FILENAME) as file:
+        data = take_minutes(file.read())
+        file.close()
     with open(f"{dir}/zapisnik.json", "w+") as file:
         json.dump(data, file, indent=4)
         file.close()
