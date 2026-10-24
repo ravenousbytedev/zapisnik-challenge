@@ -28,7 +28,7 @@ Another issue is that the script cannot work offline because it needs internet a
 
 ### How I used AI assistants
 
-I used ChatGPT to help weigh the pros and cons of different approaches to this problem and ultimately decided to settle for the LLM approach. I also used it later to help me rewrite my system prompt from an extensive and exhaustive but unorganized instruction set into a structured and very strict ruleset for the LLM. Apart from that, I only used official docs (e.g. for `argparse` Python library and GroqCloud's API), online forums (StackOverflow and Reddit) and my own knowledge.
+I used ChatGPT to help weigh the pros and cons of different approaches to this problem and ultimately decided to settle for the LLM approach. I also used it later to help me rewrite my system prompt from an extensive and exhaustive but unorganized instruction set into a structured and very strict ruleset for the LLM. Apart from that, I only used official docs (e.g. for `argparse` Python library and the LLM API), online forums (StackOverflow and Reddit) and my own knowledge.
 
 ### What I would add with one more week
 
