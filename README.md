@@ -192,4 +192,4 @@ I used ChatGPT to help weigh the pros and cons of different approaches to this p
 
 ### What I would add with one more week
 
-I would love to work on a GUI for the program using a library like Tk interface or PyWin32, as well as a website for the script and a server with Node.js or Next.js to run everything on. I would also look into adding a PDF output option to the script for convenience. Other than that, I would try to create a component that automatically tests the accuracy of the script and reports it alongside the extracted data for reference.
+I would mainly work on a website for the script and a server with Node.js or Next.js to run everything on. Other than that, I would look into creating an additional script component that automatically tests the accuracy of the script and reports it alongside the extracted data for reference.
