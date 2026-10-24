@@ -743,6 +743,8 @@ def main():
     parser.add_argument("FILENAME")
     parser.add_argument("--out", default="output/", type=pathlib.Path)
     namesp = parser.parse_args()
+    if not os.path.exists(namesp.FILENAME) or not os.path.isfile(namesp.FILENAME):
+        raise FileNotFoundError(namesp.FILENAME)
     with open(namesp.FILENAME) as file:
         data = take_minutes(file.read())
         file.close()
