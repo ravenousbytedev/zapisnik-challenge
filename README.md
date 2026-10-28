@@ -184,7 +184,7 @@ The Markdown will be a readable version of all the data contained in the JSON ou
 
 My approach to this challenge was to use an LLM with a strict system prompt to process the given transcript and extract all required data. The reason I chose this approach is because it's quick and relatively easy to implement programmatically, which was ideal for the relatively short time window I had to work on this project.
 
-The major flaw of this approach is that the accuracy of the script depends heavily on the quality of the LLM used. For example, the model I initially used, Qwen 3.8 27B, would mess up line numbers all the time and also throw in random gibberish at times. At a few rare occasions, it even hallucinated names. However, switching to the notably more powerful NVIDIA Nemotron 3 Ultra 550B immediately shower far better results.
+The major flaw of this approach is that the accuracy of the script depends heavily on the quality of the LLM used. For example, the model I initially used, Qwen 3.8 27B, would mess up line numbers all the time and also throw in random gibberish at times. At a few rare occasions, it would even hallucinate names. However, switching to the notably more powerful NVIDIA Nemotron 3 Ultra 550B immediately showed far better results.
 
 ### How I used AI assistants
 
